@@ -192,12 +192,24 @@ a {
   padding: 0 1rem;
 }
 
-.photo_gallery {
+.photo__gallery {
   background-color: #FAFAFA;
   padding-top: 10px;
 }
-
-.photo-gallery__item {
+@media (min-width: 768px) {
+  .photo__gallery--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.photo__gallery__item {
   width: 100%;
   padding: 0 1rem 1rem 1rem;
+}
+@media (min-width: 768px) {
+  .photo__gallery__item {
+    height: 25vh;
+    width: 32vw;
+  }
 }/*# sourceMappingURL=bio.css.map */
