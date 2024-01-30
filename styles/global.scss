@@ -1,3 +1,6 @@
+@use './partials/mixins' as *;
+@use './partials/typography' as*;
+
 *,
 ::before,
 ::after {
@@ -5,22 +8,16 @@
     // font-size: 100%;
 }
 
-@mixin tablet {
-	@media (min-width: 768px) {
-		@content;
-	}
-}
-@mixin desktop {
-	@media (min-width: 1280px) {
-		@content;
-	}
-}
-
 body {
-    font-family: sans-serif;
+    font-family: 'Avenir Next LT Pro-Regular';
     font-size: 1rem;
     margin: 0;
     font-size: 100%;
+}
+
+.set-margin{
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .header{
@@ -33,8 +30,9 @@ body {
    
        @include tablet{
            display: flex;
-           justify-content: flex-start;
+           flex-direction: row;
            align-items: center;
+           width: 100%;
        }
     }   
    
@@ -44,17 +42,33 @@ body {
            flex-direction: column;
            justify-content: center;
            align-items: center;   
+
+           @include tablet(){
+            padding: 0 2rem;
+           }
+   
        }
    
        &__menu {
            display: flex;
            justify-content: space-around;
-           margin: 1rem;
+        //    margin: 1rem;
            
            @include tablet{
                display: flex;
-               justify-content: space-evenly;
+            //    flex-direction: column;
+               justify-content: flex-end;
                align-items: center;
+          }
+           &--item{
+            @include tablet{
+                display: flex;
+             //    flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                margin-right: 5rem;
+                font-size:1.2rem;
+            }
            }
        }
    }

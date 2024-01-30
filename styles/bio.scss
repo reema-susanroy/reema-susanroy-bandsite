@@ -1,50 +1,134 @@
 @use './global.scss' as *;
+@use './partials/mixins' as *;
 
 @mixin set_height_width ($height, $width) {
     height: $height;
     width: $width;
 }
 
-.hero{
+.hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/hero-bio.jpg');
-    background-color: rgba(255, 255, 255, 0.5); 
-    background-size:cover;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: cover;
     background-repeat: no-repeat;
-	height: 30vh;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-    
-}
+    background-position: center;
+    height: 30vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-.hero__title{
-    // @include set_height_width(35rem, 100%);
-    color: white;
-    padding-left: 1rem;
-
-    @include tablet{
-        font-size: 2rem;
+    @include tablet {
+        height: 80vh;
+        background-size: cover;
     }
 
 }
 
-.section__musicians--img{
-    height: 30vh;
+.hero__title {
+    // @include set_height_width(35rem, 100%);
+    color: white;
+    padding-left: 1rem;
+
+    @include tablet {
+        font-size: 4rem;
+    }
+
 }
 
-.set-margin{
-    margin-left: 1rem;
-    margin-right: 1rem;
+// .paragraph{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     margin: 0 3rem;
+//  }
+
+.about {
+    &__title {
+        @include tablet {
+            font-size: 2rem
+        }
+    }
+
+    &__image--container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__image {
+        height: 30vh;
+
+        @include tablet {
+            height: 65vh;
+        }
+    }
+
+    &__container {
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 3rem;
+        }
+    }
+
+    &__quote {
+        font-family: "Avenir Next LT Pro-Demi";
+        font-weight: bolder;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        @include tablet{
+            font-size: 1.5rem;
+            line-height: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        &--author {
+            font-weight: bolder;
+            // margin-bottom: 2px;
+        }
+    }
+
+    &__subtitle {
+        font-family: 'Avenir Next LT Pro-Demi';
+        font-weight: 800;
+    }
+
+    &__paragraph--container {
+
+        @include tablet {
+            display: flex;
+            line-height: 2rem;
+        }
+
+    }
+
+    &__paragraph {
+        padding: 0 1rem;
+    }
+
+    // &__paragraph--first {
+    //     color: green;
+    // }
 }
 
+
+
+// .section__about--image{
+//     height: 30vh;
+
+//     @include tablet{
+//         height: 80vh;
+//     }
+// }
 
 .photo_gallery {
     background-color: #FAFAFA;
     padding-top: 10px;
 
-    
+
 }
 
-.photo-gallery__item{
+.photo-gallery__item {
     width: 100%;
-    padding: 0 1rem 1rem 1rem;}
+    padding: 0 1rem 1rem 1rem;
+}
