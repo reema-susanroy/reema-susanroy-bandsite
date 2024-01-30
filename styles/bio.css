@@ -1,0 +1,84 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  font-size: 100%;
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container {
+  padding: 15px;
+  background-color: #323232;
+  color: white;
+}
+
+.footer__contact-item {
+  padding-top: 1rem;
+}
+
+.footer__social--icon {
+  height: 1.5rem;
+}
+
+.footer__contact-item--subtitle {
+  padding-bottom: 1rem;
+}
+.footer__contact-item--address-bottom {
+  padding-bottom: 0.5rem;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/hero-bio.jpg");
+  background-color: rgba(255, 255, 255, 0.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero__title {
+  color: white;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+}
+
+.section__musicians--img {
+  height: 30vh;
+}
+
+.set-margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.photo_gallery {
+  background-color: #FAFAFA;
+  padding-top: 10px;
+}
+
+.photo-gallery__item {
+  width: 100%;
+  padding: 0 1rem 1rem 1rem;
+}/*# sourceMappingURL=bio.css.map */

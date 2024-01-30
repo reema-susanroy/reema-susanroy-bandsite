@@ -1,0 +1,50 @@
+@use './global.scss' as *;
+
+@mixin set_height_width ($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+.hero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/hero-bio.jpg');
+    background-color: rgba(255, 255, 255, 0.5); 
+    background-size:cover;
+    background-repeat: no-repeat;
+	height: 30vh;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+    
+}
+
+.hero__title{
+    // @include set_height_width(35rem, 100%);
+    color: white;
+    padding-left: 1rem;
+
+    @include tablet{
+        font-size: 2rem;
+    }
+
+}
+
+.section__musicians--img{
+    height: 30vh;
+}
+
+.set-margin{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.photo_gallery {
+    background-color: #FAFAFA;
+    padding-top: 10px;
+
+    
+}
+
+.photo-gallery__item{
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;}
