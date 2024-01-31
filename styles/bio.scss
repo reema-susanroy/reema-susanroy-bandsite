@@ -45,7 +45,8 @@
 .about {
     &__title {
         @include tablet {
-            font-size: 2rem
+            font-size: 2rem;
+            padding: 0 1rem;
         }
     }
 
@@ -85,32 +86,48 @@
 
         &--author {
             font-weight: bolder;
-            // margin-bottom: 2px;
         }
     }
 
     &__subtitle {
-        font-family: 'Avenir Next LT Pro-Demi';
-        font-weight: 800;
+        font-family: 'Avenir Next LT Pro-Regular';
+        /* font-weight: 800; */
+        font-size: 1rem;
+        line-height: 2rem;
+        letter-spacing: 0.5px;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 
+
     &__paragraph--container {
+        font-family: 'Avenir Next LT Pro-Regular';
 
         @include tablet {
             display: flex;
-            line-height: 1.5rem;
-            letter-spacing: 1px;
+            // font-size: 1rem;
+            // line-height: 1rem;
+            // letter-spacing: 1px;
         }
 
     }
 
     &__paragraph {
-        padding-left: 1rem;
+        padding-right: .5rem;
+        font-size: .8rem;
+        line-height: 1.2rem;
+
+        @include tablet {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            letter-spacing: .2px;
+        }
     }
 
     &__paragraph--first {
-        // color: green;
-        // padding-r    ight: 1rem;
+        // padding-right: 1rem;
     }
 }
 
@@ -129,26 +146,32 @@
     padding-top: 10px;
 
     &--header {
+        @include tablet {
+            padding: 1rem 1rem 0 1rem ;
+            font-family: 'Avenir Next LT Pro-Demi';
+            font-size: 2.2rem;
+        }
     }
 
     &--container {
 
-        @include tablet{
+        @include tablet {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
     }
-        &__item {
-            width: 100%;
-            padding: 0 1rem 1rem 1rem;
 
-            @include tablet{
-                height: 25vh;
-                width: 32vw;
-            }
+    &__item {
+        width: 100%;
+        padding: 0 1rem 1rem 1rem;
+
+        @include tablet {
+            height: 25vh;
+            width: 32vw;
         }
     }
+}
 
 
 
