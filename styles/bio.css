@@ -98,15 +98,99 @@ a {
   padding-top: 1rem;
 }
 
-.footer__social--icon {
-  height: 1.5rem;
+.footer__social--iconimages {
+  height: 2rem;
+  padding-right: 2rem;
 }
 
+.footer__contact {
+  padding: 1rem 0rem 3rem 0rem;
+}
+@media (min-width: 768px) {
+  .footer__contact {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+.footer__contact-item {
+  margin-right: 1rem;
+}
 .footer__contact-item--subtitle {
-  padding-bottom: 1rem;
+  font-family: "Avenir Next LT Pro-Demi";
+  line-height: 1.5rem;
 }
 .footer__contact-item--address-bottom {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__social {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .footer__social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+}
+
+.footer__social--icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .footer__social--icons {
+    padding-right: 0rem;
+  }
+}
+
+.footer__logo {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer__logo {
+    display: flex;
+  }
+}
+
+.footer__copyright--statement {
+  font-size: x-small;
+}
+@media (min-width: 768px) {
+  .footer__copyright--statement {
+    font-size: medium;
+  }
+}
+
+.footer__copyright--logo-container {
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .footer__copyright--logo-container {
+    display: none;
+  }
+}
+
+.footer__copy--logo {
+  height: 1.5rem;
+}
+@media (min-width: 768px) {
+  .footer__copy--logo {
+    display: none;
+  }
+}
+
+.box1 {
+  display: flex;
 }
 
 .hero {
@@ -185,13 +269,13 @@ a {
 @media (min-width: 768px) {
   .about__paragraph--container {
     display: flex;
-    line-height: 2rem;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
   }
 }
 .about__paragraph {
-  padding: 0 1rem;
+  padding-left: 1rem;
 }
-
 .photo__gallery {
   background-color: #FAFAFA;
   padding-top: 10px;

@@ -84,15 +84,6 @@ a {
     flex-direction: column;
 }
 
-
-
-// footer{
-
-//     display: flex;
-//     flex-direction: colu;
-
-
-// }
 .footer-container {
     padding: 15px;
     background-color: #323232;
@@ -103,21 +94,111 @@ a {
     padding-top: 1rem;
 }
 
-.footer__social--icon {
-    height: 1.5rem;
+.footer__social--iconimages {
+    height: 2rem;
+    padding-right: 2rem;
 }
 
+// .footer--side{
+//     flex: 1;
+//     display: flex;
+
+// }
 
 .footer__contact {
+    padding: 1rem 0rem 3rem 0rem;
+    @include tablet{
 
-
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+			justify-content: flex-start;
+    // padding-left: 2rem;
+    }
+    
     &-item {
+        margin-right: 1rem;
         &--subtitle {
-            padding-bottom: 1rem;
+            font-family: 'Avenir Next LT Pro-Demi';
+            // padding-bottom: 1rem;
+            // padding: 0rem;
+			// margin: 0rem;
+			line-height: 1.5rem;
         }
 
         &--address-bottom {
-            padding-bottom: .5rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
         }
     }
+}
+
+ .footer__social{
+    display: flex;
+     align-items: flex-start;
+     flex-direction: column;
+
+    @include tablet{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+		// padding-top: 2rem;  
+    }
+ }
+.footer__social--icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        flex-wrap: wrap;
+        @include tablet {
+            padding-right: 0rem;
+        }
+    // display: flex;
+    // justify-content: space-between;
+}
+
+// .footer__social--header{
+//     font-family: 'Avenir Next LT Pro-Demi';
+//     letter-spacing: 2px;
+// }
+
+.footer__logo{
+    display: none;
+
+    @include tablet{
+        display: flex;
+        // flex-direction: row;
+        // flex :1 ;
+        
+    }
+}
+.footer__copyright--statement{
+    font-size: x-small;
+
+    @include tablet{
+        font-size:medium;
+    }
+}
+
+.footer__copyright--logo-container{
+    margin-top: 3rem;
+
+
+    @include tablet{
+        // padding-top: 5rem;
+        display: none;
+    }
+}
+
+.footer__copy--logo{
+    height: 1.5rem;
+    @include tablet{
+        display: none;
+    }
+}
+
+.box1{
+    display: flex;;
 }

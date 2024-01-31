@@ -98,18 +98,20 @@
 
         @include tablet {
             display: flex;
-            line-height: 2rem;
+            line-height: 1.5rem;
+            letter-spacing: 1px;
         }
 
     }
 
     &__paragraph {
-        padding: 0 1rem;
+        padding-left: 1rem;
     }
 
-    // &__paragraph--first {
-    //     color: green;
-    // }
+    &__paragraph--first {
+        // color: green;
+        // padding-r    ight: 1rem;
+    }
 }
 
 
@@ -125,12 +127,6 @@
 .photo__gallery {
     background-color: #FAFAFA;
     padding-top: 10px;
-
-    // @include tablet {
-    //     display: flex;
-    //     flex-direction: row;
-    //     flex-wrap: wrap;
-    // }
 
     &--header {
     }
