@@ -10,3 +10,16 @@
 	}
 }
 
+@mixin setPadding {
+    padding: 0 1rem;
+}
+
+@mixin setPadding_tablet{
+    padding: 0 2rem;
+}
+
+@mixin setPadding_desktop {
+    padding: 0 9rem;
+}
+
+

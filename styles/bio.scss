@@ -12,25 +12,44 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 30vh;
+    // height: 50vh;
+    // width: 100%;    
+    height: 12rem;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     @include tablet {
-        height: 80vh;
+        // height: 80vh;
+        height: 30rem;
+        background-size: cover;
+    }
+
+    @include desktop {
+        // height: 100vh;
+        height: 50vw;
         background-size: cover;
     }
 
 }
 
 .hero__title {
+    @include setPadding();
+
     // @include set_height_width(35rem, 100%);
+    font-size: 25px;
     color: white;
-    padding-left: 1rem;
+    // padding-left: 1rem;
+    // margin : 0 1rem; -->removed now
 
     @include tablet {
+        @include setPadding_tablet();
         font-size: 4rem;
+    }
+
+    @include desktop {
+        @include setPadding_desktop();
     }
 
 }
@@ -43,32 +62,62 @@
 //  }
 
 .about {
+    @include setPadding();
+
+    @include desktop {
+        @include setPadding_desktop();
+    }
+
     &__title {
+        // padding: 0 1rem; --> removed
+
         @include tablet {
+            @include setPadding_tablet();
             font-size: 2rem;
-            padding: 0 1rem;
+            // padding: 0 1rem;
         }
+
+        // @include desktop{
+        //     @include setPadding_desktop();
+        // }
     }
 
     &__image--container {
         display: flex;
         justify-content: center;
+
+        @include tablet {
+            padding: 0rem 5rem 2rem 5rem;
+        }
+
+        @include desktop {
+            padding: 0rem 6rem 2rem 6rem;
+        }
     }
 
     &__image {
-        height: 30vh;
+        // height: 30vh;
+        width: 100%;
 
         @include tablet {
-            height: 65vh;
+            // height: 65vh;
         }
     }
 
     &__container {
+        // padding: 0, 1rem; --removed now
+        // @include setPadding();
+
         @include tablet {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin: 0 3rem;
+            // margin: 0 3rem;
+            padding: 0rem 5rem 2rem 5rem;
+        }
+
+        @include desktop {
+            padding: 0rem 6rem 2rem 6rem;
         }
     }
 
@@ -77,15 +126,20 @@
         font-weight: bolder;
         font-size: 0.9rem;
         margin-bottom: 0;
+        line-height: 25px;
 
         @include tablet {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             line-height: 2rem;
             letter-spacing: 0.5px;
+
+        }
+        @include desktop{
+            padding: 0 8rem 0 0;
         }
 
         &--author {
-            font-weight: bolder;
+            font-weight: 800;
         }
     }
 
@@ -116,7 +170,7 @@
 
     &__paragraph {
         padding-right: .5rem;
-        font-size: .8rem;
+        font-size: 0.9rem;
         line-height: 1.2rem;
 
         @include tablet {
@@ -144,10 +198,17 @@
 .photo__gallery {
     background-color: #FAFAFA;
     padding-top: 10px;
+    @include desktop {
+        @include setPadding_desktop();
+    }
 
     &--header {
+        // nothing removed added
+        @include setPadding();
+
         @include tablet {
-            padding: 1rem 1rem 0 1rem ;
+            @include setPadding_tablet();
+            // padding: 1rem 1rem 0 2rem ;
             font-family: 'Avenir Next LT Pro-Demi';
             font-size: 2.2rem;
         }
@@ -169,6 +230,10 @@
         @include tablet {
             height: 25vh;
             width: 32vw;
+        }
+        @include desktop {
+            height: 25vh;
+            width: 25vw;
         }
     }
 }

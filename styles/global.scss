@@ -5,7 +5,6 @@
 ::before,
 ::after {
     box-sizing: border-box;
-    // font-size: 100%;
 }
 
 body {
@@ -13,11 +12,6 @@ body {
     font-size: 1rem;
     margin: 0;
     font-size: 100%;
-}
-
-.set-margin {
-    margin-left: 1rem;
-    margin-right: 1rem;
 }
 
 .header {
@@ -48,12 +42,17 @@ body {
             padding: 1rem 4rem 1rem 2rem;
         }
 
+        &--item {
+            height: 1.4rem;
+        }
+
     }
 
     &__menu {
         display: flex;
         justify-content: space-around;
         padding: 0 0 1rem 0;
+        color: azure;
 
         @include tablet {
             display: flex;
@@ -63,22 +62,31 @@ body {
         }
 
         &--item {
+
+            
             @include tablet {
                 display: flex;
                 //    flex-direction: column;
                 justify-content: flex-end;
                 align-items: center;
                 margin-right: 5rem;
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
     }
 }
 
+
+
 a {
     list-style-type: none;
     text-decoration: none;
     color: white;
+}
+
+.header__menu--item:hover { 
+    color: white;
+    font-weight: bold;
 }
 
 .navbar {
@@ -87,9 +95,18 @@ a {
 }
 
 .footer-container {
-    padding: 15px;
+    // padding: 15px; -->removed
     background-color: #323232;
     color: white;
+    @include setPadding();
+
+    @include tablet {
+        @include setPadding_tablet();
+    }
+
+    @include desktop {
+        @include setPadding_desktop();
+    }
 }
 
 .footer__contact-item {
@@ -108,7 +125,8 @@ a {
 // }
 
 .footer__contact {
-    padding: 1rem 0rem 3rem 0rem;
+    // padding: 1rem 0rem 3rem 0rem; --> removed
+    // @include setPadding();
 
     @include tablet {
 
@@ -120,7 +138,8 @@ a {
     }
 
     &-item {
-        margin-right: 1rem;
+        margin-right: 0.8rem;
+
 
         &--subtitle {
             font-family: 'Avenir Next LT Pro-Regular';
@@ -139,9 +158,10 @@ a {
         &--address-bottom {
             // padding: 0 0 1rem 0;
             margin: 0 0 1rem 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
+
             // color: aqua;
-            @include tablet{
+            @include tablet {
                 margin: 0 0 2rem 0;
             }
         }
@@ -211,6 +231,8 @@ a {
 
 .footer__copyright--statement {
     font-size: x-small;
+    margin: 0;
+    padding: 1rem 0;
 
     @include tablet {
         font-size: medium;
@@ -219,7 +241,7 @@ a {
 
 .footer__copyright--logo-container {
     // margin-top: 3rem;
-
+    padding-top: 3rem;
 
     @include tablet {
         // padding-top: 5rem;
