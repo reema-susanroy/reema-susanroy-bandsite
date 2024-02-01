@@ -13,6 +13,12 @@ body {
     margin: 0;
     font-size: 100%;
 }
+h1,
+h2,
+h3,
+p{
+    margin:0;
+}
 
 .header {
 
@@ -21,7 +27,6 @@ body {
         display: flex;
         flex-direction: column;
         padding-top: 1rem;
-
         @include tablet {
             display: flex;
             flex-direction: row;
@@ -29,7 +34,6 @@ body {
             width: 100%;
         }
     }
-
     &__logo {
 
         display: flex;
@@ -37,7 +41,6 @@ body {
         justify-content: center;
         align-items: center;
         padding: 0 0 1rem 0;
-
         @include tablet() {
             padding: 1rem 4rem 1rem 2rem;
         }
@@ -47,50 +50,37 @@ body {
         }
 
     }
-
     &__menu {
         display: flex;
         text-align:center;
         justify-content: space-evenly;
-        /*justify-content: space-around;
-        padding: 0 0 1rem 0;
-        color: azure; --commented now*/ 
-/*
-        // @include tablet {
-        //     display: flex;
-        //     //    flex-direction: column;
-        //     justify-content: flex-end;
-        //     align-items: center;
-        // } -- commeted now*/
         &--active{
             width: 50%;
+            height: 6vh;
             border-bottom: 3px solid white;
-            padding : 0 0 1rem 0;
-            // @include tablet{
-            //     margin: 0   1rem   0   1rem;
-            // }
-        }
+            padding : 0 0 0.5rem 0;
 
+            @include desktop{
+                height: 5vh;
+            }
+        }
         &--inactive{
             width: 50%;
             @include tablet{
                 margin: 0   0   0   3rem;
             }
         }
-        }
-        &--item {
-
-            
-            @include tablet {
-                display: flex;
-                //    flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
-                margin-right: 5rem;
-                font-size: 1rem;
-            }
+    }
+    &--item {
+        @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 5rem;
+        font-size: 1rem;
         }
     }
+}
 
 a {
     list-style-type: none;
@@ -113,15 +103,12 @@ a {
 }
 
 .footer-container {
-    // padding: 15px; -->removed
     background-color: #323232;
     color: white;
     @include setPadding();
-
     @include tablet {
-        @include setPadding_tablet();
+        padding: 0 1.5rem 2rem 1.5rem;
     }
-
     @include desktop {
         @include setPadding_desktop();
     }
@@ -132,61 +119,42 @@ a {
 }
 
 .footer__social--iconimages {
-    height: 2rem;
+    height: 1.4rem;
     padding-right: 2rem;
 }
 
-// .footer--side{
-//     flex: 1;
-//     display: flex;
-
-// }
-
 .footer__contact {
-    // padding: 1rem 0rem 3rem 0rem; --> removed
-    // @include setPadding();
-
     @include tablet {
-
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         justify-content: flex-start;
-        // padding-left: 2rem;
     }
-
     &-item {
         margin-right: 0.8rem;
-
-
         &--subtitle {
             font-family: 'Avenir Next LT Pro-Regular';
             padding: 0 0 1rem 0;
-            font-weight: 300;
-            line-height: 1.5rem;
-        }
-
-        &--address-top {
-            // padding: 0;
-            // margin:0;
-            font-size: 1rem;
-            // color: aqua;
-        }
-
-        &--address-bottom {
-            // padding: 0 0 1rem 0;
-            margin: 0 0 1rem 0;
             font-size: 0.9rem;
-
-            // color: aqua;
+            line-height: 0.8rem;
+        }
+        &--address {
+            font-size: 0.8rem;
+        }
+        &--address-bottom {
+            margin: 0 0 1rem 0;
+            font-size: 0.8rem;
             @include tablet {
                 margin: 0 0 2rem 0;
             }
         }
-
     }
 }
 
+.footer__social--header{
+    padding : 1.5rem 0 1rem 0;
+    font-size:2rem;
+}
 .footer__social {
     display: flex;
     align-items: flex-start;
@@ -198,7 +166,6 @@ a {
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
-        // padding-top: 2rem;  
     }
 }
 
@@ -221,29 +188,17 @@ a {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-
     @include tablet {
 
         padding-right: 5rem;
     }
-
-    // display: flex;
-    // justify-content: space-between;
 }
-
-// .footer__social--header{
-//     font-family: 'Avenir Next LT Pro-Demi';
-//     letter-spacing: 2px;
-// }
 
 .footer__logo {
     display: none;
 
     @include tablet {
         display: flex;
-        // flex-direction: row;
-        // flex :1 ;
-
     }
 }
 
@@ -251,27 +206,21 @@ a {
     font-size: x-small;
     margin: 0;
     padding: 1rem 0;
-
     @include tablet {
         font-size: medium;
     }
 }
 
 .footer__copyright--logo-container {
-    // margin-top: 3rem;
     padding-top: 3rem;
-
     @include tablet {
-        // padding-top: 5rem;
         display: none;
     }
 }
 
 .footer__copy--logo {
     height: 1.5rem;
-
     @include tablet {
         display: none;
     }
 }
-

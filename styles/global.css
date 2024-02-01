@@ -26,6 +26,13 @@ body {
   font-size: 100%;
 }
 
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
 .header__navbar {
   background-color: #323232;
   display: flex;
@@ -59,21 +66,17 @@ body {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
-  /*justify-content: space-around;
-  padding: 0 0 1rem 0;
-  color: azure; --commented now*/
-  /*
-          // @include tablet {
-          //     display: flex;
-          //     //    flex-direction: column;
-          //     justify-content: flex-end;
-          //     align-items: center;
-          // } -- commeted now*/
 }
 .header__menu--active {
   width: 50%;
+  height: 6vh;
   border-bottom: 3px solid white;
-  padding: 0 0 1rem 0;
+  padding: 0 0 0.5rem 0;
+}
+@media (min-width: 1280px) {
+  .header__menu--active {
+    height: 5vh;
+  }
 }
 .header__menu--inactive {
   width: 50%;
@@ -121,7 +124,7 @@ a {
 }
 @media (min-width: 768px) {
   .footer-container {
-    padding: 0 2rem;
+    padding: 0 1.5rem 2rem 1.5rem;
   }
 }
 @media (min-width: 1280px) {
@@ -135,7 +138,7 @@ a {
 }
 
 .footer__social--iconimages {
-  height: 2rem;
+  height: 1.4rem;
   padding-right: 2rem;
 }
 
@@ -153,20 +156,25 @@ a {
 .footer__contact-item--subtitle {
   font-family: "Avenir Next LT Pro-Regular";
   padding: 0 0 1rem 0;
-  font-weight: 300;
-  line-height: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 0.8rem;
 }
-.footer__contact-item--address-top {
-  font-size: 1rem;
+.footer__contact-item--address {
+  font-size: 0.8rem;
 }
 .footer__contact-item--address-bottom {
   margin: 0 0 1rem 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 @media (min-width: 768px) {
   .footer__contact-item--address-bottom {
     margin: 0 0 2rem 0;
   }
+}
+
+.footer__social--header {
+  padding: 1.5rem 0 1rem 0;
+  font-size: 2rem;
 }
 
 .footer__social {

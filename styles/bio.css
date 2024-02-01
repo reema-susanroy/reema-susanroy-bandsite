@@ -26,6 +26,11 @@ body {
   font-size: 100%;
 }
 
+h1, h2, h3,
+p {
+  margin: 0;
+}
+
 .header__navbar {
   background-color: #323232;
   display: flex;
@@ -72,8 +77,14 @@ body {
 }
 .header__menu--active {
   width: 50%;
+  height: 6vh;
   border-bottom: 3px solid white;
-  padding: 0 0 1rem 0;
+  padding: 0 0 0.5rem 0;
+}
+@media (min-width: 1280px) {
+  .header__menu--active {
+    height: 5vh;
+  }
 }
 .header__menu--inactive {
   width: 50%;
@@ -121,7 +132,7 @@ a {
 }
 @media (min-width: 768px) {
   .footer-container {
-    padding: 0 2rem;
+    padding: 0 1.5rem 2rem 1.5rem;
   }
 }
 @media (min-width: 1280px) {
@@ -135,7 +146,7 @@ a {
 }
 
 .footer__social--iconimages {
-  height: 2rem;
+  height: 1.4rem;
   padding-right: 2rem;
 }
 
@@ -153,20 +164,25 @@ a {
 .footer__contact-item--subtitle {
   font-family: "Avenir Next LT Pro-Regular";
   padding: 0 0 1rem 0;
-  font-weight: 300;
-  line-height: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 0.8rem;
 }
-.footer__contact-item--address-top {
-  font-size: 1rem;
+.footer__contact-item--address {
+  font-size: 0.8rem;
 }
 .footer__contact-item--address-bottom {
   margin: 0 0 1rem 0;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 @media (min-width: 768px) {
   .footer__contact-item--address-bottom {
     margin: 0 0 2rem 0;
   }
+}
+
+.footer__social--header {
+  padding: 1.5rem 0 1rem 0;
+  font-size: 2rem;
 }
 
 .footer__social {
@@ -258,6 +274,7 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 0 1rem;
 }
 @media (min-width: 768px) {
   .hero {
@@ -273,14 +290,16 @@ a {
 }
 
 .hero__title {
-  padding: 0 1rem;
-  font-size: 25px;
-  color: white;
+  font-family: "Avenir Next LT Pro-Bold";
+  font-size: 1.5rem;
+  line-height: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
 }
 @media (min-width: 768px) {
   .hero__title {
-    padding: 0 2rem;
-    font-size: 4rem;
+    padding: 0 1.25rem;
+    font-size: 3.75rem;
   }
 }
 @media (min-width: 1280px) {
@@ -297,10 +316,13 @@ a {
     padding: 0 9rem;
   }
 }
+.about__title {
+  padding: 1.5rem 0 1rem 0;
+}
 @media (min-width: 768px) {
   .about__title {
-    padding: 0 2rem;
-    font-size: 2rem;
+    padding: 3rem 1.25rem 2.2rem 1.25rem;
+    font-size: 2.25rem;
   }
 }
 .about__image--container {
@@ -335,10 +357,9 @@ a {
 }
 .about__quote {
   font-family: "Avenir Next LT Pro-Demi";
-  font-weight: bolder;
   font-size: 0.9rem;
-  margin-bottom: 0;
   line-height: 25px;
+  padding: 1rem 0 0.5rem 0;
 }
 @media (min-width: 768px) {
   .about__quote {
@@ -354,13 +375,14 @@ a {
 }
 .about__quote--author {
   font-weight: 800;
+  font-size: 0.9rem;
 }
 .about__subtitle {
   font-family: "Avenir Next LT Pro-Regular";
-  /* font-weight: 800; */
   font-size: 1rem;
   line-height: 2rem;
   letter-spacing: 0.5px;
+  padding: 1.5rem 0 1rem 0;
 }
 @media (min-width: 768px) {
   .about__subtitle {
@@ -376,9 +398,9 @@ a {
   }
 }
 .about__paragraph {
-  padding-right: 0.5rem;
-  font-size: 0.9rem;
-  line-height: 1.2rem;
+  padding: 0 0.5rem 1rem 0;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
 }
 @media (min-width: 768px) {
   .about__paragraph {
@@ -389,6 +411,7 @@ a {
 }
 
 .photo__gallery {
+  padding: 0 1rem;
   background-color: #FAFAFA;
   padding-top: 10px;
 }
@@ -398,13 +421,13 @@ a {
   }
 }
 .photo__gallery--header {
-  padding: 0 1rem;
+  padding: 1.5rem 0 1rem 0;
 }
 @media (min-width: 768px) {
   .photo__gallery--header {
-    padding: 0 2rem;
+    padding: 3rem 1.25rem 2.2rem 1.25rem;
     font-family: "Avenir Next LT Pro-Demi";
-    font-size: 2.2rem;
+    font-size: 2.25rem;
   }
 }
 @media (min-width: 768px) {
@@ -412,16 +435,18 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 0 2rem 0;
   }
 }
 .photo__gallery__item {
   width: 100%;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 0 1rem 0;
 }
 @media (min-width: 768px) {
   .photo__gallery__item {
-    height: 25vh;
-    width: 32vw;
+    padding: 1rem 1rem 0 0;
+    height: 20vh;
+    width: 30vw;
   }
 }
 @media (min-width: 1280px) {

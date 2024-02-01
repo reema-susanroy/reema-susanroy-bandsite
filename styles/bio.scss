@@ -1,5 +1,6 @@
 @use './global.scss' as *;
 @use './partials/mixins' as *;
+@use './partials/variables' as *;
 
 @mixin set_height_width ($height, $width) {
     height: $height;
@@ -19,6 +20,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @include setPadding();
 
     @include tablet {
         // height: 80vh;
@@ -35,201 +37,138 @@
 }
 
 .hero__title {
-    @include setPadding();
-
-    // @include set_height_width(35rem, 100%);
-    font-size: 25px;
-    color: white;
-    // padding-left: 1rem;
-    // margin : 0 1rem; -->removed now
-
+    font-family: 'Avenir Next LT Pro-Bold';
+    font-size: 1.5rem;
+    line-height: 32px;
+    font-weight: 700;
+    color: $primary_text_color;
     @include tablet {
         @include setPadding_tablet();
-        font-size: 4rem;
+        font-size: 3.75rem;
     }
-
     @include desktop {
         @include setPadding_desktop();
     }
-
 }
-
-// .paragraph{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     margin: 0 3rem;
-//  }
 
 .about {
     @include setPadding();
-
     @include desktop {
         @include setPadding_desktop();
     }
-
     &__title {
-        // padding: 0 1rem; --> removed
-
+        padding: 1.5rem 0 1rem 0;
         @include tablet {
-            @include setPadding_tablet();
-            font-size: 2rem;
-            // padding: 0 1rem;
+            padding: 3rem 1.25rem 2.2rem 1.25rem;
+            font-size: 2.25rem;
         }
-
-        // @include desktop{
-        //     @include setPadding_desktop();
-        // }
     }
-
     &__image--container {
         display: flex;
         justify-content: center;
-
         @include tablet {
             padding: 0rem 5rem 2rem 5rem;
         }
-
         @include desktop {
             padding: 0rem 6rem 2rem 6rem;
         }
     }
-
     &__image {
         // height: 30vh;
         width: 100%;
-
-        @include tablet {
-            // height: 65vh;
-        }
     }
-
     &__container {
-        // padding: 0, 1rem; --removed now
-        // @include setPadding();
-
         @include tablet {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            // margin: 0 3rem;
             padding: 0rem 5rem 2rem 5rem;
         }
-
         @include desktop {
             padding: 0rem 6rem 2rem 6rem;
         }
     }
-
     &__quote {
         font-family: "Avenir Next LT Pro-Demi";
-        font-weight: bolder;
         font-size: 0.9rem;
-        margin-bottom: 0;
         line-height: 25px;
+        padding: 1rem 0 0.5rem 0;
 
         @include tablet {
             font-size: 1.3rem;
             line-height: 2rem;
             letter-spacing: 0.5px;
-
         }
-        @include desktop{
+
+        @include desktop {
             padding: 0 8rem 0 0;
         }
-
         &--author {
             font-weight: 800;
+            font-size: 0.9rem;
         }
     }
-
     &__subtitle {
         font-family: 'Avenir Next LT Pro-Regular';
-        /* font-weight: 800; */
         font-size: 1rem;
         line-height: 2rem;
         letter-spacing: 0.5px;
-
+        padding:1.5rem 0 1rem 0;
         @include tablet {
             font-size: 1.5rem;
         }
     }
-
-
     &__paragraph--container {
         font-family: 'Avenir Next LT Pro-Regular';
 
         @include tablet {
             display: flex;
-            // font-size: 1rem;
-            // line-height: 1rem;
-            // letter-spacing: 1px;
         }
-
     }
-
     &__paragraph {
-        padding-right: .5rem;
-        font-size: 0.9rem;
-        line-height: 1.2rem;
-
+        padding: 0 .5rem 1rem 0;
+        font-size: 0.8rem;
+        line-height: 1.1rem;
         @include tablet {
             font-size: 1rem;
             line-height: 1.5rem;
             letter-spacing: .2px;
         }
     }
-
-    // &__paragraph--first {
-    //     // padding-right: 1rem;
-    // }
 }
-
-
-
-// .section__about--image{
-//     height: 30vh;
-
-//     @include tablet{
-//         height: 80vh;
-//     }
-// }
-
 .photo__gallery {
+    @include setPadding();
     background-color: #FAFAFA;
     padding-top: 10px;
+
     @include desktop {
         @include setPadding_desktop();
     }
-
     &--header {
-        // nothing removed added
-        @include setPadding();
+        padding: 1.5rem 0 1rem 0;
 
         @include tablet {
-            @include setPadding_tablet();
-            // padding: 1rem 1rem 0 2rem ;
+            padding: 3rem 1.25rem 2.2rem 1.25rem;
             font-family: 'Avenir Next LT Pro-Demi';
-            font-size: 2.2rem;
+            font-size: 2.25rem;
         }
     }
-
     &--container {
 
         @include tablet {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            padding: 0 0 2rem 0;
         }
     }
-
     &__item {
         width: 100%;
-        padding: 0 1rem 1rem 1rem;
-
+        padding: 0 0 1rem 0;
         @include tablet {
-            height: 25vh;
-            width: 32vw;
+            padding: 1rem 1rem 0 0;
+            height: 20vh;
+            width: 30vw;
         }
         @include desktop {
             height: 25vh;
@@ -237,37 +176,3 @@
         }
     }
 }
-
-
-
-
-// .photo-gallery__item {
-//     width: 100%;
-//     padding: 0 1rem 1rem 1rem;
-// }
-
-
-// .photo_gallery {
-//     background-color: #FAFAFA;
-//     padding-top: 10px;
-
-//     @include tablet{
-//         display: flex;
-//         flex-direction: column;
-//         flex-wrap: wrap;
-//     }
-
-//     // &__container{
-
-//     // &--item{
-//     //     width: 100%;
-//     //     padding: 0 1rem 1rem 1rem;
-//     // }
-//     // }
-
-// }
-
-// .photo-gallery--item {
-//     width: 100%;
-//     padding: 0 1rem 1rem 1rem;
-// }
