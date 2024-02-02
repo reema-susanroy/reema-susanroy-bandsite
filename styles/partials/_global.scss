@@ -76,9 +76,11 @@ p {
 
         &--inactive {
             width: 50%;
-            &-item{
-                color:$ternary_color;
+
+            &-item {
+                color: $ternary_color;
             }
+
             @include tablet {
                 margin: 0 0 0 3rem;
             }
@@ -86,7 +88,7 @@ p {
     }
 
     &__menu--item {
-        &:hover { 
+        &:hover {
             color: $primary_text_color;
             font-weight: bold;
         }
@@ -99,11 +101,7 @@ a {
     color: $primary_text_color;
 }
 
-.navbar {
-    display: flex;
-    flex-direction: column;
-}
-
+/*..............................*/
 .footer-container {
     background-color: $primary_color;
     color: $primary_text_color;
@@ -118,19 +116,94 @@ a {
     }
 }
 
-.footer__contact-item {
-    padding-top: 1rem;
+.footer__social {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 
     @include tablet {
-        width: 19vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    &--top {
+        @include tablet {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            align-items: center;
+            // justify-content: space-between;
+        }
+    }
+
+    &--header {
+        padding: 1.5rem 0 1rem 0;
+        // padding-right: 3rem;
+        font-size: 2rem;
+
+    }
+
+
+    &--icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        @include tablet {
+
+            padding-right: 5rem;
+        }
+    }
+
+    &--iconimages {
+        color: aqua;
+        cursor: pointer;
+        height: 1.4rem;
+        padding-right: 2rem;
     }
 }
 
-.footer__social--iconimages {
-    height: 1.4rem;
-    padding-right: 2rem;
-    // padding-left: 2rem;
-}
+
+
+
+// .navbar {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+//added
+// .footer-container {
+//     background-color: $primary_color;
+//     color: $primary_text_color;
+//     @include setPadding();
+
+//     @include tablet {
+//         padding: 0 1.5rem 2rem 1.5rem;
+//     }
+
+//     @include desktop {
+//         padding: 02rem 9rem;
+//     }
+// }
+
+// .footer__contact-item {
+//     padding-top: 1rem;
+
+//     @include tablet {
+//         width: 19vw;
+//     }
+// }
+
+//added
+// .footer__social--iconimages {
+//     cursor: pointer;
+//     height: 1.4rem;
+//     padding-right: 2rem;
+//     // padding-left: 2rem;
+// }
 
 .footer__contact {
     @include tablet {
@@ -174,50 +247,54 @@ a {
     }
 }
 
-.footer__social--header {
-    padding: 1.5rem 0 1rem 0;
-    font-size: 2rem;
-}
+//added
+// .footer__social--header {
+//     padding: 1.5rem 0 1rem 0;
+//     font-size: 2rem;
+// }
 
-.footer__social {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+//added
+// .footer__social {
+//     display: flex;
+//     align-items: flex-start;
+//     flex-direction: column;
 
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-    }
-}
+//     @include tablet {
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         justify-content: space-between;
+//         flex-wrap: nowrap;
+//     }
+// }
 
-.footer__social--header {
-    padding-right: 3rem;
-}
+// .footer__social--header {
+//     padding-right: 3rem;
+// }
 
-.footer__social--top {
-    @include tablet {
-        display: flex;
-        flex: 1;
-        flex-direction: row;
-        align-items: center;
-        // justify-content: space-between;
-    }
-}
+//added
+// .footer__social--top {
+//     @include tablet {
+//         display: flex;
+//         flex: 1;
+//         flex-direction: row;
+//         align-items: center;
+//         // justify-content: space-between;
+//     }
+// }
 
-.footer__social--icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+//added
+// .footer__social--icons {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//     flex-wrap: wrap;
 
-    @include tablet {
+//     @include tablet {
 
-        padding-right: 5rem;
-    }
-}
+//         padding-right: 5rem;
+//     }
+// }
 
 .footer__logo {
     display: none;

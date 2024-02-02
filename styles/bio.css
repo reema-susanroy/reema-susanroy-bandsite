@@ -100,11 +100,7 @@ a {
   color: #FFFFFF;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: column;
-}
-
+/*..............................*/
 .footer-container {
   background-color: #323232;
   color: #FFFFFF;
@@ -121,16 +117,46 @@ a {
   }
 }
 
-.footer__contact-item {
-  padding-top: 1rem;
+.footer__social {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
-  .footer__contact-item {
-    width: 19vw;
+  .footer__social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 }
-
+@media (min-width: 768px) {
+  .footer__social--top {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.footer__social--header {
+  padding: 1.5rem 0 1rem 0;
+  font-size: 2rem;
+}
+.footer__social--icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .footer__social--icons {
+    padding-right: 5rem;
+  }
+}
 .footer__social--iconimages {
+  color: aqua;
+  cursor: pointer;
   height: 1.4rem;
   padding-right: 2rem;
 }
@@ -172,51 +198,6 @@ a {
 @media (min-width: 768px) {
   .footer__contact-item--address-bottom {
     padding: 0.5rem 0 2rem 0;
-  }
-}
-
-.footer__social--header {
-  padding: 1.5rem 0 1rem 0;
-  font-size: 2rem;
-}
-
-.footer__social {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-@media (min-width: 768px) {
-  .footer__social {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-}
-
-.footer__social--header {
-  padding-right: 3rem;
-}
-
-@media (min-width: 768px) {
-  .footer__social--top {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.footer__social--icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-@media (min-width: 768px) {
-  .footer__social--icons {
-    padding-right: 5rem;
   }
 }
 
