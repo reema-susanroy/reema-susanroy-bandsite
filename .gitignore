@@ -1,4 +1,4 @@
 *.css.map
-.DS_Store
+assets/.DS_Store
 /.vscode/
-/CopyDeck/
+assets/CopyDeck/
