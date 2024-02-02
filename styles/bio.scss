@@ -1,4 +1,4 @@
-@use './global.scss' as *;
+@use './partials/global' as*;
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
 
@@ -171,7 +171,7 @@
             width: 30vw;
         }
         @include desktop {
-            height: 25vh;
+            height: 22vh;
             width: 25vw;
         }
     }

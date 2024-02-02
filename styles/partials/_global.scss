@@ -1,5 +1,6 @@
-@use './partials/mixins' as *;
-@use './partials/typography' as*;
+@use './mixins' as *;
+@use './typography' as*;
+@use './variables' as*;
 
 *,
 ::before,
@@ -11,22 +12,24 @@ body {
     font-family: 'Avenir Next LT Pro-Regular';
     font-size: 1rem;
     margin: 0;
-    font-size: 100%;
+    // font-size: 100%;
 }
+
 h1,
 h2,
 h3,
-p{
-    margin:0;
+p {
+    margin: 0;
 }
 
 .header {
 
     &__navbar {
-        background-color: #323232;
+        background-color: $primary_color;
         display: flex;
         flex-direction: column;
         padding-top: 1rem;
+
         @include tablet {
             display: flex;
             flex-direction: row;
@@ -34,6 +37,7 @@ p{
             width: 100%;
         }
     }
+
     &__logo {
 
         display: flex;
@@ -41,6 +45,7 @@ p{
         justify-content: center;
         align-items: center;
         padding: 0 0 1rem 0;
+
         @include tablet() {
             padding: 1rem 4rem 1rem 2rem;
         }
@@ -50,34 +55,40 @@ p{
         }
 
     }
+
     &__menu {
         display: flex;
-        text-align:center;
+        text-align: center;
         justify-content: space-evenly;
-        &--active{
+
+        &--active {
             width: 50%;
             height: 6vh;
-            border-bottom: 3px solid white;
-            padding : 0 0 0.5rem 0;
+            border-bottom: 3px solid $primary_text_color;
+            padding: 0 0 0.5rem 0;
+            font-weight: 600;
 
-            @include desktop{
+
+            @include desktop {
                 height: 5vh;
             }
         }
-        &--inactive{
+
+        &--inactive {
             width: 50%;
-            @include tablet{
-                margin: 0   0   0   3rem;
+            &-item{
+                color:$ternary_color;
+            }
+            @include tablet {
+                margin: 0 0 0 3rem;
             }
         }
     }
-    &--item {
-        @include tablet {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 5rem;
-        font-size: 1rem;
+
+    &__menu--item {
+        &:hover { 
+            color: $primary_text_color;
+            font-weight: bold;
         }
     }
 }
@@ -85,42 +96,40 @@ p{
 a {
     list-style-type: none;
     text-decoration: none;
-    color: white;
+    color: $primary_text_color;
 }
 
-.header__menu--item:hover { 
-    color: white;
-    font-weight: bold;
-}
-
-.header__menu--item--highlight {
-    border-bottom: 4px solid white;
-    padding-bottom: 9px;
-}
 .navbar {
     display: flex;
     flex-direction: column;
 }
 
 .footer-container {
-    background-color: #323232;
-    color: white;
+    background-color: $primary_color;
+    color: $primary_text_color;
     @include setPadding();
+
     @include tablet {
         padding: 0 1.5rem 2rem 1.5rem;
     }
+
     @include desktop {
-        @include setPadding_desktop();
+        padding: 02rem 9rem;
     }
 }
 
 .footer__contact-item {
     padding-top: 1rem;
+
+    @include tablet {
+        width: 19vw;
+    }
 }
 
 .footer__social--iconimages {
     height: 1.4rem;
     padding-right: 2rem;
+    // padding-left: 2rem;
 }
 
 .footer__contact {
@@ -130,31 +139,46 @@ a {
         flex-direction: row;
         justify-content: flex-start;
     }
+
     &-item {
         margin-right: 0.8rem;
+
+        @include tablet {
+            width: 14rem;
+        }
+
+        @include desktop {
+            width: 14rem;
+        }
+
         &--subtitle {
             font-family: 'Avenir Next LT Pro-Regular';
-            padding: 0 0 1rem 0;
+            padding: 0 0 2rem 0;
             font-size: 0.9rem;
             line-height: 0.8rem;
         }
+
         &--address {
             font-size: 0.8rem;
+            // padding: 0 0 .5rem 0;
         }
+
         &--address-bottom {
-            margin: 0 0 1rem 0;
+            padding: .5rem 0 1rem 0;
             font-size: 0.8rem;
+
             @include tablet {
-                margin: 0 0 2rem 0;
+                padding: .5rem 0 2rem 0;
             }
         }
     }
 }
 
-.footer__social--header{
-    padding : 1.5rem 0 1rem 0;
-    font-size:2rem;
+.footer__social--header {
+    padding: 1.5rem 0 1rem 0;
+    font-size: 2rem;
 }
+
 .footer__social {
     display: flex;
     align-items: flex-start;
@@ -188,6 +212,7 @@ a {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+
     @include tablet {
 
         padding-right: 5rem;
@@ -203,16 +228,24 @@ a {
 }
 
 .footer__copyright--statement {
-    font-size: x-small;
+    font-size: 0.6rem;
     margin: 0;
-    padding: 1rem 0;
+    padding: 1rem 0 2rem 0;
+
     @include tablet {
-        font-size: medium;
+        padding: 3rem 0 1rem 0;
+        font-size: 0.8rem;
+    }
+
+    @include tablet {
+        padding: 3rem 0 1rem 0;
+        font-size: 0.8rem;
     }
 }
 
 .footer__copyright--logo-container {
     padding-top: 3rem;
+
     @include tablet {
         display: none;
     }
@@ -220,6 +253,7 @@ a {
 
 .footer__copy--logo {
     height: 1.5rem;
+
     @include tablet {
         display: none;
     }
