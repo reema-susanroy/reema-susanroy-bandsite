@@ -114,6 +114,7 @@ a {
 /*..............................*/
 .footer-container {
   display: flex;
+  flex-direction: column;
   background-color: #323232;
   color: #FFFFFF;
   line-height: 1rem;
@@ -159,6 +160,7 @@ a {
 @media (min-width: 768px) {
   .footer__social--header {
     font-size: 2rem;
+    width: 14rem;
   }
 }
 .footer__social--icons {
@@ -166,12 +168,6 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 0 0 1rem 0;
-}
-@media (min-width: 768px) {
-  .footer__social--icons {
-    padding: 0 3rem;
-  }
 }
 .footer__social--iconimages {
   color: aqua;
@@ -180,6 +176,9 @@ a {
   padding-right: 2rem;
 }
 
+.footer__contact {
+  padding: 1rem 0 0 0;
+}
 @media (min-width: 768px) {
   .footer__contact {
     display: flex;
@@ -194,6 +193,7 @@ a {
 @media (min-width: 768px) {
   .footer__contact-item {
     width: 14rem;
+    margin-right: 0;
   }
 }
 @media (min-width: 1280px) {

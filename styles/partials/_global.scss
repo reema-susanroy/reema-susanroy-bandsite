@@ -111,7 +111,7 @@ a {
 /*..............................*/
 .footer-container {
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     background-color: $primary_color;
     color: $primary_text_color;
     line-height: 1rem;
@@ -156,6 +156,7 @@ a {
 
         @include tablet{
             font-size: 2rem;
+            width: 14rem;
         }
 
     }
@@ -166,10 +167,10 @@ a {
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
-        padding: 0 0 1rem 0;
+        // padding: 0 0 1rem 0;
         @include tablet {
 
-            padding: 0 3rem;
+            // padding: 0 3rem;
         }
     }
 
@@ -222,6 +223,7 @@ a {
 
 .footer__contact {
     // line-height: 18px;
+    padding: 1rem 0 0 0;
     @include tablet {
         display: flex;
         justify-content: space-between;
@@ -234,6 +236,7 @@ a {
 
         @include tablet {
             width: 14rem;
+            margin-right: 0;
         }
 
         @include desktop {
