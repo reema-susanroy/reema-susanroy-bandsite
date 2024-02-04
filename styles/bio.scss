@@ -8,8 +8,7 @@
 }
 
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/hero-bio.jpg');
-    background-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('../assets/images/hero-bio.jpg'); /* #323232 with 50% opacity on top of the background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -18,6 +17,7 @@
     height: 12rem;
     width: 100%;
     display: flex;
+    overflow: hidden;
     justify-content: flex-start;
     align-items: center;
     @include setPadding();
@@ -39,7 +39,6 @@
 .hero__title {
     font-family: 'Avenir Next LT Pro-Bold';
     font-size: 1.5rem;
-    // line-height: 32px;
     font-weight: 700;
     color: $primary_text_color;
     @include tablet {
@@ -52,7 +51,6 @@
 }
 
 .about {
-    // line-height: 1.1rem;
     @include setPadding();
     @include desktop {
         @include setPadding_desktop();
@@ -78,6 +76,8 @@
     &__image {
         // height: 30vh;
         width: 100%;
+        object-fit: fill;
+        // height: 2vh;
     }
     &__container {
         @include tablet {
@@ -120,7 +120,6 @@
     &__subtitle {
         font-family: 'Avenir Next LT Pro-Regular';
         font-size: 1rem;
-        // line-height: 2rem;
         line-height: 1.3px;
         letter-spacing: 0.5px;
         padding: 2rem 0 1.5rem 0;        
@@ -159,11 +158,12 @@
         @include tablet {
             padding: 3rem 1.25rem 2.2rem 1.25rem;
             font-family: 'Avenir Next LT Pro-Demi';
-            font-size: 2.25rem;
+            width: 85%;
         }
+
     }
     &--container {
-
+        
         @include tablet {
             display: flex;
             flex-wrap: wrap;
@@ -172,16 +172,87 @@
         }
     }
     &__item {
+        cursor: pointer;
         width: 100%;
         padding: 0 0 1rem 0;
         @include tablet {
             padding: 1rem 1rem 0 0;
-            height: 20vh;
+            height: 22vh;
             width: 30vw;
         }
         @include desktop {
             height: 22vh;
             width: 25vw;
         }
+    }   
+    &:hover{
+    @include greyScaleHover ();}
+       
+
+}
+
+// .overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.5);
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+// }
+// .photo__gallery__item:hover .overlay {
+//     opacity: 50;
+// }
+
+
+
+
+.photo__gallery__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tablet{
+        flex-direction: row;
+        flex-wrap: wrap;
     }
+}
+
+.photo__gallery__container--item {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.photo__gallery__container--image {
+    width: 18rem;
+    padding: 0 0 1rem 0;
+
+    object-fit: fill;
+    overflow: hidden;
+
+    @include tablet{
+        width: 14.5rem;
+    padding: 0 1em 1rem 0;    
+    }
+
+    @include desktop{
+        width: 20.2rem;
+    }
+}
+
+
+.photo__gallery__container--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo__gallery__container--image:hover .photo__gallery__container--overlay {
+    opacity: 0.3;
 }

@@ -79,14 +79,14 @@ p {
 }
 .header__menu--active {
   width: 50%;
-  height: 6vh;
+  height: 2.5rem;
   border-bottom: 3px solid #FFFFFF;
   padding: 0 0 0.5rem 0;
   font-weight: 600;
 }
 @media (min-width: 1280px) {
   .header__menu--active {
-    height: 5vh;
+    height: 2.8rem;
   }
 }
 .header__menu--inactive {
@@ -111,7 +111,6 @@ a {
   color: #FFFFFF;
 }
 
-/*..............................*/
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -143,6 +142,7 @@ a {
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
+    padding: 0 1rem;
   }
 }
 @media (min-width: 768px) {
@@ -155,7 +155,7 @@ a {
 }
 .footer__social--header {
   padding: 2rem 0 1.5rem 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .footer__social--header {
@@ -170,21 +170,29 @@ a {
   flex-wrap: wrap;
 }
 .footer__social--iconimages {
-  color: aqua;
   cursor: pointer;
   height: 1.4rem;
   padding-right: 2rem;
 }
 
-.footer__contact {
-  padding: 1rem 0 0 0;
+.footer__logo {
+  display: none;
 }
+@media (min-width: 768px) {
+  .footer__logo {
+    display: flex;
+    max-height: 20px;
+    max-width: 120px;
+  }
+}
+
 @media (min-width: 768px) {
   .footer__contact {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     justify-content: flex-start;
+    padding: 0 1rem;
   }
 }
 .footer__contact-item {
@@ -202,8 +210,7 @@ a {
   }
 }
 .footer__contact-item--subtitle {
-  font-family: "Avenir Next LT Pro-Regular";
-  padding: 0 0 2rem 0;
+  padding: 2rem 0;
   font-size: 0.9rem;
 }
 .footer__contact-item--address {
@@ -220,33 +227,6 @@ a {
   }
 }
 
-.footer__logo {
-  display: none;
-}
-@media (min-width: 768px) {
-  .footer__logo {
-    display: flex;
-  }
-}
-
-.footer__copyright--statement {
-  font-size: 0.6rem;
-  margin: 0;
-  padding: 1rem 0 2rem 0;
-}
-@media (min-width: 768px) {
-  .footer__copyright--statement {
-    padding: 3rem 0 1rem 0;
-    font-size: 0.8rem;
-  }
-}
-@media (min-width: 768px) {
-  .footer__copyright--statement {
-    padding: 3rem 0 1rem 0;
-    font-size: 0.8rem;
-  }
-}
-
 .footer__copyright--logo-container {
   padding-top: 3rem;
 }
@@ -255,30 +235,36 @@ a {
     display: none;
   }
 }
-
-.footer__copy--logo {
-  height: 1.5rem;
+.footer__copyright--logo-container__copy--logo {
+  max-height: 20px;
+  max-width: 120px;
 }
 @media (min-width: 768px) {
-  .footer__copy--logo {
+  .footer__copyright--logo-container__copy--logo {
     display: none;
   }
 }
-
-.container {
-  width: 50%;
-  display: flex;
+.footer__copyright--statement {
+  font-size: 0.6rem;
+  margin: 0;
+  padding: 1rem 0 2rem 0;
+}
+@media (min-width: 768px) {
+  .footer__copyright--statement {
+    padding: 3rem 1rem 1rem 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/hero-bio.jpg");
-  background-color: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg"); /* #323232 with 50% opacity on top of the background image */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 12rem;
   width: 100%;
   display: flex;
+  overflow: hidden;
   justify-content: flex-start;
   align-items: center;
   padding: 0 1rem;
@@ -348,6 +334,8 @@ a {
 }
 .about__image {
   width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 @media (min-width: 768px) {
   .about__container {
@@ -443,7 +431,7 @@ a {
   .photo__gallery--header {
     padding: 3rem 1.25rem 2.2rem 1.25rem;
     font-family: "Avenir Next LT Pro-Demi";
-    font-size: 2.25rem;
+    width: 85%;
   }
 }
 @media (min-width: 768px) {
@@ -455,13 +443,14 @@ a {
   }
 }
 .photo__gallery__item {
+  cursor: pointer;
   width: 100%;
   padding: 0 0 1rem 0;
 }
 @media (min-width: 768px) {
   .photo__gallery__item {
     padding: 1rem 1rem 0 0;
-    height: 20vh;
+    height: 22vh;
     width: 30vw;
   }
 }
@@ -470,4 +459,63 @@ a {
     height: 22vh;
     width: 25vw;
   }
+}
+.photo__gallery:hover {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+.photo__gallery:hover:hover {
+  filter: grayscale(0);
+}
+
+.photo__gallery__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .photo__gallery__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.photo__gallery__container--item {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.photo__gallery__container--image {
+  width: 18rem;
+  padding: 0 0 1rem 0;
+  -o-object-fit: fill;
+     object-fit: fill;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .photo__gallery__container--image {
+    width: 14.5rem;
+    padding: 0 1em 1rem 0;
+  }
+}
+@media (min-width: 1280px) {
+  .photo__gallery__container--image {
+    width: 20.2rem;
+  }
+}
+
+.photo__gallery__container--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo__gallery__container--image:hover .photo__gallery__container--overlay {
+  opacity: 0.3;
 }/*# sourceMappingURL=bio.css.map */
