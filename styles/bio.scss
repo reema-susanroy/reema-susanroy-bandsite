@@ -130,7 +130,7 @@
 }
 .photo__gallery {
     @include setPadding();
-    background-color: #FAFAFA;
+    background-color: $alternative_background_color;
     padding-top: 10px;
 
     @include desktop {
