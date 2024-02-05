@@ -84,7 +84,7 @@ p {
     &__menu--item {
         &:hover {
             color: $primary_text_color;
-            font-weight: bold;
+            font-weight: 600;
         }
     }
 }
@@ -155,14 +155,12 @@ a {
     display: none;
     @include tablet {
         display: flex;
-        max-height: 20px;
-        max-width: 120px;
+        max-height: 1.25rem;
+        max-width: 7.5rem;
     }
 }
 
 .footer__contact {
-
-    // padding: 1rem 0 0 0;
     @include tablet {
         display: flex;
         justify-content: space-between;
@@ -202,29 +200,24 @@ a {
 }
 
 .footer__copyright {
-
     &--logo-container {
         padding-top: 3rem;
-
         @include tablet {
             display: none;
         }
-
         &__copy--logo {
-            max-height: 20px;
-            max-width: 120px;
+            max-height: 1.25rem;
+            max-width: 7.5rem;
 
             @include tablet {
                 display: none;
             }
         }
     }
-
     &--statement {
         font-size: 0.6rem;
         margin: 0;
         padding: 1rem 0 2rem 0;
-
         @include tablet {
             padding: 3rem 1rem 1rem 1rem;
             font-size: 0.8rem;

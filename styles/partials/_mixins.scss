@@ -1,11 +1,11 @@
 
 @mixin tablet {
-	@media (min-width: 768px) {
+	@media (min-width: 768px){
 		@content;
 	}
 }
 @mixin desktop {
-	@media (min-width: 1280px) {
+	@media (min-width: 1280px){
 		@content;
 	}
 }
@@ -26,12 +26,4 @@
 	font-style: normal;
     font-size: 0.8rem;
 	padding: 0 0 1rem 0;
-}
-
-@mixin greyScaleHover {
-	filter: grayscale(100%);
-	transition: filter 0.3s ease-in-out;
-	&:hover {
-		filter: grayscale(0);
-	}
 }
