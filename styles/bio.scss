@@ -3,7 +3,7 @@
 @use './partials/variables' as *;
 
 .hero {
-    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('../assets/images/hero-bio.jpg'); /* #323232 with 50% opacity on top of the background image */
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('../assets/images/hero-bio.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
