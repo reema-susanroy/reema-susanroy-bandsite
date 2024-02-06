@@ -82,4 +82,8 @@
             @include setPadding_tablet();
         }
     }
+    &__layout{
+        display: flex;
+        flex-direction: column;
+    }
 }

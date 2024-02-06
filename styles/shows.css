@@ -362,4 +362,8 @@ a {
   .shows__title {
     padding: 0 1.25rem;
   }
+}
+.shows__layout {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=shows.css.map */
