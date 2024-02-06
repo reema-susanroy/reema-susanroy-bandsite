@@ -31,8 +31,14 @@ p {
 }
 
 .header {
+    background-color: $primary_color;
+    @include tablet{
+        @include setPadding_tablet();
+    }
+    @include desktop{
+        @include setPadding_desktop();
+    }
     &__navbar {
-        background-color: $primary_color;
         display: flex;
         flex-direction: column;
         padding-top: 1rem;
@@ -50,7 +56,7 @@ p {
         align-items: center;
         padding: 0 0 1rem 0;
         @include tablet() {
-            padding: 1rem 4rem 1rem 2rem;
+            padding:1rem 4rem 1rem 1.2rem;
         }
         &--item {
             height: 1.4rem;
@@ -60,6 +66,9 @@ p {
         display: flex;
         text-align: center;
         justify-content: space-evenly;
+        @include tablet{
+                 gap: 3rem;
+        }
         &--active {
             width: 50%;
             height: 2.5rem;
@@ -75,10 +84,9 @@ p {
             &-item {
                 color: $ternary_color;
             }
-
-            @include tablet {
-                margin: 0 0 0 3rem;
-            }
+            // @include tablet {
+            //     margin: 0 2rem;
+            // }
         }
     }
     &__menu--item {

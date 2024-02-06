@@ -2,22 +2,84 @@
 @use './partials/mixins' as *;
 @use './partials/variables' as *;
 
-.hero__shows{
-    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('/assets/images/hero-shows.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 12rem;
-    width: 100%;
+.hero {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    justify-content: flex-start;
-    justify-content: center;
-    color: $primary_text_color;
-    padding: 0 1rem;
-    &--title{
-        width: 70%;
-        padding: 1rem 0;
+    &__container {
+        background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('/assets/images/hero-shows.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        overflow: hidden;
+        color: $primary_text_color;
+        padding: 2rem 1rem;
+
+        @include tablet {
+            height: 27rem;
+            padding-top: 3rem;
+        }
+        @include desktop {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 50vw;
+        }
+        &--album {
+            @include tablet {
+                @include setPadding_tablet();
+                font-size: 1.5rem;
+            }
+            @include desktop {
+                @include setPadding_desktop();
+                // font-size: 1.8rem;
+            }
+        }
+    }
+    &__shows {
+        display: flex;
+        flex-direction: column;
+        
+        @include tablet {
+            @include setPadding_tablet();
+            font-size: 3rem;
+        }
+        @include desktop {
+            @include setPadding_desktop();
+            flex-direction: row;
+            gap: 5rem;
+        }
+        &--song {
+            width: 80%;
+            padding: 1rem 0 1rem 0;
+            letter-spacing: .5px;
+            @include tablet {
+                width: 80%;
+                font-size: 3.75rem;
+            }
+            @include desktop{
+                width: 70%;
+            }
+        }
+        &--iframe {
+            padding: 1rem 0;
+            height: 9rem;
+            @include tablet {
+                width: 60%;
+            }
+            @include desktop{
+                height: auto;
+            }
+        }
+    }
+}
+
+.shows {
+    padding: 2rem 1rem;
+
+    &__title {
+        @include tablet {
+            @include setPadding_tablet();
+        }
     }
 }
