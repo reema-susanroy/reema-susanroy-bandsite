@@ -130,6 +130,9 @@
         justify-content: space-around;
         align-items: center;
     }
+    &:hover{
+        background-color: $alternative_background_color;
+    }
 
     &--label {
         color: $secondary_text_color;
@@ -175,4 +178,8 @@
             // width: 17%;
         }
     }
+}
+
+.selected{
+    background-color: $ternary_color;
 }

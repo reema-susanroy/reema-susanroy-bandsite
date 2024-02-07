@@ -131,17 +131,11 @@ function renderShow() {
         const showData = createShowItems(show);
         showSection.appendChild(showData);
 
-
-        //when hovered
-        showData.addEventListener('mouseover', function () {
-            this.classList.add('hovered');
-        });
-
         showData.addEventListener('click', function () {
-            document.querySelectorAll('.show-item').forEach(item => {
+            const items = document.querySelectorAll('.show__item');
+            items.forEach((item) => {
                 item.classList.remove('selected');
             });
-
             this.classList.add('selected');
         });
     });
@@ -155,19 +149,5 @@ function addTabletLabel() {
     for (let i = 0; i < 3; i++) {
         tabletLabels[i].classList.add("show__item--label-tablet");
     }
-    const one = document.querySelector(".shows__title");
-    const two= document.createElement("div");
-    two.appendChild(tabletLabels);
-    console.log(two);
 }
 addTabletLabel();
-
-// function createHeader() {
-//     const header = document.createElement('p');
-//     header.classList.add('show__item--label-tablet');
-//     header.textContent = text;
-//     return header;
-//   }
-// for (i=0; i<=3 ; i++){
-
-// }

@@ -401,6 +401,9 @@ a {
     align-items: center;
   }
 }
+.show__item:hover {
+  background-color: #FAFAFA;
+}
 .show__item--label {
   color: #AFAFAF;
   text-transform: uppercase;
@@ -438,4 +441,7 @@ a {
   .show__item--button {
     width: 20%;
   }
+}
+.selected {
+  background-color: #E1E1E1;
 }/*# sourceMappingURL=shows.css.map */
