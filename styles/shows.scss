@@ -53,8 +53,8 @@
         @include desktop {
             @include setPadding_desktop();
             flex-direction: row;
-            gap: 5rem;
-        }
+            gap: 6rem;
+            }
 
         &--song {
             width: 80%;
@@ -67,7 +67,7 @@
             }
 
             @include desktop {
-                width: 70%;
+                width: 50%;
             }
         }
 
@@ -81,6 +81,7 @@
 
             @include desktop {
                 height: auto;
+                width: 100%;
             }
         }
     }
@@ -88,6 +89,10 @@
 
 .shows {
     padding: 2rem 1rem;
+    @include desktop{
+        display: flex;
+        justify-content: space-around;
+    }
 
     &__title {
         @include tablet {
@@ -98,6 +103,10 @@
     &__layout {
         display: flex;
         flex-direction: column;
+
+        @include desktop{
+            flex: 1;
+        }
     }
 }
 
@@ -105,6 +114,7 @@
     @include desktop {
         display: flex;
         flex-direction: column;
+        flex: 1;
     }
 }
 
@@ -115,11 +125,29 @@
     padding: 1rem 0;
     border-bottom: solid 2px $ternary_color;
 
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
     &--label {
         color: $secondary_text_color;
         text-transform: uppercase;
-        font-size: 14px
+        font-size: 14px;
+
+        @include tablet {
+             display: none;
+        }
+        &-tablet{
+            @include tablet{
+            display: flex;
+            flex-direction: row;
+            }
+
+        }
     }
+
 
     &--value {
         color: $primary_color;
@@ -138,5 +166,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include tablet {
+            width: 20%;
+        }
+
+        @include desktop {
+            // width: 17%;
+        }
     }
 }

@@ -76,20 +76,20 @@ function createShowItems(show) {
     venueCont.classList.add("show__item--cont")
     const venueLabel = document.createElement("p");
     venueLabel.classList.add("show__item--label")
-    venueLabel.textContent =show.venueLabel;
+    venueLabel.textContent = show.venueLabel;
     const venueContent = document.createElement("p");
     venueContent.classList.add("show__item--value")
-    venueContent.textContent =show.venueItem;
+    venueContent.textContent = show.venueItem;
 
 
     const locationCont = document.createElement("div");
     locationCont.classList.add("show__item--cont")
     const locationLabel = document.createElement("p");
     locationLabel.classList.add("show__item--label")
-    locationLabel.textContent =show.locationLabel;
+    locationLabel.textContent = show.locationLabel;
     const locationContent = document.createElement("p");
     locationContent.classList.add("show__item--value")
-    locationContent.textContent =show.locationItem;
+    locationContent.textContent = show.locationItem;
 
 
     // const buttonCont = document.createElement("button");
@@ -100,7 +100,7 @@ function createShowItems(show) {
     buttonCont.classList.add("show__item--button");
     buttonCont.textContent = show.buttonItem;
 
-    /*
+
     dateCont.appendChild(dateLabel);
     dateCont.appendChild(dateContent);
     venueCont.appendChild(venueLabel);
@@ -111,37 +111,63 @@ function createShowItems(show) {
     showCont.appendChild(dateCont);
     showCont.appendChild(venueCont);
     showCont.appendChild(locationCont);
-    */
-    
-    showCont.appendChild(dateLabel);
+
+
+    /*showCont.appendChild(dateLabel);
     showCont.appendChild(dateContent);
     showCont.appendChild(venueLabel);
     showCont.appendChild(venueContent);
     showCont.appendChild(locationLabel);
-    showCont.appendChild(locationContent);
-       
+    showCont.appendChild(locationContent);*/
+
     showCont.appendChild(buttonCont);
-    
+
     return showCont;
-    
+
 }
 
-function renderShow(){
+function renderShow() {
     showsItems.forEach((show) => {
         const showData = createShowItems(show);
         showSection.appendChild(showData);
 
+
+        //when hovered
+        showData.addEventListener('mouseover', function () {
+            this.classList.add('hovered');
+        });
+
+        showData.addEventListener('click', function () {
+            document.querySelectorAll('.show-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            this.classList.add('selected');
+        });
     });
 
 }
 renderShow();
 
 
-function addTabletLabel(event){
+function addTabletLabel() {
     const tabletLabels = document.querySelectorAll(".show__item--label");
-    for(let i = 0; i < 3; i++){
+    for (let i = 0; i < 3; i++) {
         tabletLabels[i].classList.add("show__item--label-tablet");
     }
-    console.log(tabletLabels);
+    const one = document.querySelector(".shows__title");
+    const two= document.createElement("div");
+    two.appendChild(tabletLabels);
+    console.log(two);
 }
 addTabletLabel();
+
+// function createHeader() {
+//     const header = document.createElement('p');
+//     header.classList.add('show__item--label-tablet');
+//     header.textContent = text;
+//     return header;
+//   }
+// for (i=0; i<=3 ; i++){
+
+// }
