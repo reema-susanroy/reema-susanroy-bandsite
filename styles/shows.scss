@@ -5,6 +5,7 @@
 .hero {
     display: flex;
     flex-direction: column;
+
     &__container {
         background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url('/assets/images/hero-shows.jpg');
         background-size: cover;
@@ -19,55 +20,66 @@
             height: 27rem;
             padding-top: 3rem;
         }
+
         @include desktop {
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 50vw;
         }
+
         &--album {
             @include tablet {
                 @include setPadding_tablet();
                 font-size: 1.5rem;
             }
+
             @include desktop {
                 @include setPadding_desktop();
                 // font-size: 1.8rem;
             }
         }
     }
+
     &__shows {
         display: flex;
         flex-direction: column;
-        
+
         @include tablet {
             @include setPadding_tablet();
             font-size: 3rem;
         }
+
         @include desktop {
             @include setPadding_desktop();
             flex-direction: row;
             gap: 5rem;
         }
+
         &--song {
             width: 80%;
             padding: 1rem 0 1rem 0;
             letter-spacing: .5px;
+
             @include tablet {
                 width: 80%;
                 font-size: 3.75rem;
             }
-            @include desktop{
+
+            @include desktop {
                 width: 70%;
             }
         }
+
         &--iframe {
             padding: 1rem 0;
             height: 9rem;
+
             @include tablet {
                 width: 60%;
             }
-            @include desktop{
+
+            @include desktop {
                 height: auto;
             }
         }
@@ -82,8 +94,49 @@
             @include setPadding_tablet();
         }
     }
-    &__layout{
+
+    &__layout {
         display: flex;
         flex-direction: column;
+    }
+}
+
+.iframe__container {
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+.show__item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-bottom: solid 2px $ternary_color;
+
+    &--label {
+        color: $secondary_text_color;
+        text-transform: uppercase;
+        font-size: 14px
+    }
+
+    &--value {
+        color: $primary_color;
+        font-weight: bold;
+        padding: 1rem 0;
+    }
+
+    &--button {
+        text-transform: uppercase;
+        color: $primary_text_color;
+        background-color: $primary_color;
+        border-radius: 5px;
+        height: 3rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

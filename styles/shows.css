@@ -366,4 +366,40 @@ a {
 .shows__layout {
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 1280px) {
+  .iframe__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.show__item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  border-bottom: solid 2px #E1E1E1;
+}
+.show__item--label {
+  color: #AFAFAF;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.show__item--value {
+  color: #323232;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+.show__item--button {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #323232;
+  border-radius: 5px;
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=shows.css.map */
