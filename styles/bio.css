@@ -605,4 +605,66 @@ label {
 
 input:invalid {
   border: 21x solid #D22D2D;
+}
+
+/*-----------------Comment -----------------*/
+.comments {
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .comments {
+    padding: 0 5rem;
+  }
+}
+
+.comment__user--image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #E1E1E1;
+}
+
+/*
+.comment__user--comment-cont{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red    ;
+}*/
+.comment__user--name-cont {
+  display: flex;
+}
+
+.comment__user--name {
+  width: 80%;
+}
+
+.comment__user--date {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment__user {
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.comment__user--comment {
+  padding: 1rem 0;
+}
+
+.comment__user--comment-cont {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.comment__user--image-cont {
+  padding-right: 1rem;
+}
+
+.comment__user--date {
+  flex: 1;
 }/*# sourceMappingURL=bio.css.map */

@@ -14,10 +14,12 @@
     justify-content: flex-start;
     align-items: center;
     @include setPadding();
+
     @include tablet {
         height: 30rem;
         background-size: cover;
     }
+
     @include desktop {
         height: 50vw;
         background-size: cover;
@@ -29,10 +31,12 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: $primary_text_color;
+
     @include tablet {
         @include setPadding_tablet();
         font-size: 3.75rem;
     }
+
     @include desktop {
         @include setPadding_desktop();
     }
@@ -40,31 +44,39 @@
 
 .about {
     @include setPadding();
+
     @include desktop {
         @include setPadding_desktop();
     }
+
     &__title {
         padding: 1rem 0 0.5rem 0;
         line-height: 2rem;
+
         @include tablet {
             padding: 3rem 1.25rem 2.2rem 1.25rem;
             font-size: 2.25rem;
         }
     }
+
     &__image--container {
         display: flex;
         justify-content: center;
+
         @include tablet {
             padding: 0rem 5rem 1rem 5rem;
         }
+
         @include desktop {
             padding: 0rem 6rem 2rem 6rem;
         }
     }
+
     &__image {
         width: 100%;
         object-fit: fill;
     }
+
     &__container {
         @include tablet {
             display: flex;
@@ -72,15 +84,18 @@
             justify-content: center;
             padding: 0rem 5rem 2rem 5rem;
         }
+
         @include desktop {
             padding: 0rem 6rem 2rem 6rem;
         }
     }
+
     &__quote {
         font-family: "Avenir Next LT Pro-Demi";
         font-size: 0.9rem;
         line-height: 1.4rem;
         padding: 1rem 0 1rem 0;
+
         @include tablet {
             font-size: 1.3rem;
             line-height: 1.5rem;
@@ -91,36 +106,44 @@
             padding: 0 8rem 0 0;
             line-height: 2rem;
         }
+
         &--author {
             font-weight: 800;
             font-size: 0.9rem;
             padding: 0 0 1rem 0;
-            @include desktop{
-            font-size: 1.1rem;
-            padding: 1rem 0 1rem 0;
+
+            @include desktop {
+                font-size: 1.1rem;
+                padding: 1rem 0 1rem 0;
             }
         }
     }
+
     &__subtitle {
         font-family: 'Avenir Next LT Pro-Regular';
         font-size: 1rem;
         line-height: 1.3px;
         letter-spacing: 0.5px;
-        padding: 2rem 0 1.5rem 0;        
+        padding: 2rem 0 1.5rem 0;
+
         @include tablet {
             font-size: 1.5rem;
         }
     }
+
     &__paragraph--container {
         font-family: 'Avenir Next LT Pro-Regular';
+
         @include tablet {
             display: flex;
         }
     }
+
     &__paragraph {
         padding: 0 .5rem 1rem 0;
         font-size: 0.8rem;
         line-height: 1.1rem;
+
         @include tablet {
             font-size: 0.8rem;
             line-height: 1.3rem;
@@ -128,6 +151,7 @@
         }
     }
 }
+
 .photo__gallery {
     @include setPadding();
     background-color: $alternative_background_color;
@@ -136,14 +160,17 @@
     @include desktop {
         @include setPadding_desktop();
     }
+
     &--header {
         padding: 1rem 0 0.5rem 0;
         line-height: 2rem;
+
         @include tablet {
             padding: 3rem 1.25rem 1.5rem 1.25rem;
             font-family: 'Avenir Next LT Pro-Demi';
         }
     }
+
     &--container {
         @include tablet {
             display: flex;
@@ -152,15 +179,18 @@
             padding: 0 0 2rem 0;
         }
     }
+
     &__item {
         cursor: pointer;
         width: 100%;
         padding: 0 0 1rem 0;
+
         @include tablet {
             padding: 1rem 1rem 0 0;
             width: 30vw;
             max-width: 30vw;
         }
+
         @include desktop {
             width: 25vw;
             max-width: 25vw;
@@ -172,93 +202,103 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: filter 0.3s ease; 
+    transition: filter 0.3s ease;
     filter: grayscale(100%);
 
-    &:hover{
+    &:hover {
         filter: grayscale(0%);
     }
 }
 
 
-.conversations__header{
+.conversations__header {
     @include setPadding();
     line-height: 2rem;
     padding-top: 20px;
 
-    @include tablet{
+    @include tablet {
         padding: 2rem 2rem 1rem 2rem;
     }
-    @include desktop{
+
+    @include desktop {
         @include setPadding_desktop();
         // padding: 3rem 1.25rem 1.5rem 1.25rem;
-    font-family: "Avenir Next LT Pro-Demi";
+        font-family: "Avenir Next LT Pro-Demi";
     }
 }
-.conversations__header--title{
-    @include desktop{
-    padding: 3rem 1.25rem 1.5rem 1.25rem;
-    font-family: "Avenir Next LT Pro-Demi";
+
+.conversations__header--title {
+    @include desktop {
+        padding: 3rem 1.25rem 1.5rem 1.25rem;
+        font-family: "Avenir Next LT Pro-Demi";
     }
 }
-.container{
+
+.container {
     display: flex;
     // flex-direction: column;
     padding: 1rem;
-    @include tablet{
-       padding: 0 5rem;
+
+    @include tablet {
+        padding: 0 5rem;
 
     }
-    @include desktop{
+
+    @include desktop {
         padding: 0 20rem;
     }
 }
-.subcontainer1{
- padding-top: 2rem;
-}
-.subcontainer2{
-    flex: 1;
-}
-.conversations__form--user{
- display: flex;
- flex-direction: column;
-//  padding: 1rem;
-padding: 1rem 0 1rem 1rem;
+
+.subcontainer1 {
+    padding-top: 2rem;
 }
 
-.align-button{
-    @include tablet{
-    flex-wrap: wrap;
-    align-content: flex-end;
+.subcontainer2 {
+    flex: 1;
+}
+
+.conversations__form--user {
+    display: flex;
+    flex-direction: column;
+    //  padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
+}
+
+.align-button {
+    @include tablet {
+        flex-wrap: wrap;
+        align-content: flex-end;
     }
 }
-.conversations__form--userImage{
+
+.conversations__form--userImage {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;
 
-    img{
+    img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 }
-.username{
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0.5rem;
-        background-color:$alternative_background_color ;
+
+.username {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+    background-color: $alternative_background_color ;
 }
 
-label{
+label {
     // padding: 1rem 0 0.5rem 0;
     font-size: .8rem;
     color: $secondary_text_color;
 }
 
-.button{
+.button {
     text-transform: uppercase;
     align-items: center;
     color: #FFFFFF;
@@ -267,27 +307,145 @@ label{
     // padding: 1rem 0;
     /* text-align: center; */
     justify-content: center;
-    border-radius: 4px ;
-    @include tablet{
+    border-radius: 4px;
+
+    @include tablet {
         width: 150px;
         padding: 0 32px;
 
     }
-    @include desktop{
 
-    }
+    @include desktop {}
 }
 
-.conversations{
-        padding: 1rem;
-    }
+.conversations {
+    padding: 1rem;
+}
 
-::placeholder{
+::placeholder {
     color: black;
 }
-#username{
+
+#username {
     height: 36px;
 }
-input:invalid{
-    border: 21x solid #D22D2D; 
+
+input:invalid {
+    border: 21x solid #D22D2D;
+}
+
+
+
+
+/*-----------------Comment -----------------*/
+
+.comments {
+    padding: 1rem;
+
+    @include tablet {
+        padding: 0 5rem;
+    }
+}
+
+// &__user--cont {
+// }
+
+// &__user--image-cont {
+//     color: aqua;
+//     // width: 40px;
+//     // height: 40px;
+//     // border-radius: 50%;
+//     // background-color: $ternary_color;
+
+
+//     &__user--image{
+//         background-image: url('../assets/images/Mohan-muruge.jpg');
+
+//     }
+// } 
+
+.comment__user {
+
+
+    &--image-cont {
+        //works
+    }
+
+    &--image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $ternary_color;
+    }
+
+
+
+    // &--comment-cont{
+    //     color:red;
+
+
+    // &__user--name-cont {
+    //     color: aqua;
+
+    //     &--name {
+    //         color: purple;
+    //     }
+
+    // }
+}
+
+/*
+.comment__user--comment-cont{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red    ;
+}*/
+
+.comment__user--name-cont {
+    //     width: 100%;
+    display: flex;
+    //   justify-content: space-between;
+    // gap: 5rem;
+
+}
+
+.comment__user--name {
+    width: 80%;
+    // padding-right: 5rem;
+}
+
+.comment__user--date {
+    // width: 80%;
+    //     display: flex;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.comment__user {
+    display: flex;
+    font-size: 0.8rem;
+
+}
+
+.comment__user--comment {
+    padding: 1rem 0;
+}
+
+.comment__user--comment-cont {
+    display: flex;
+    // align-items: flex-start;
+    flex-direction: column;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.comment__user--image-cont {
+    padding-right: 1rem;
+}
+
+.comment__user--date {
+    flex: 1;
 }
