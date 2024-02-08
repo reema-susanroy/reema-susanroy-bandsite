@@ -416,7 +416,9 @@ a {
 }
 @media (min-width: 768px) {
   .show__item--label-tablet {
+    width: 50%;
     display: flex;
+    justify-content: space-around;
     flex-direction: row;
   }
 }

@@ -143,8 +143,12 @@
              display: none;
         }
         &-tablet{
+            // display: none;
+
             @include tablet{
+                width: 50%;
             display: flex;
+            justify-content: space-around;
             flex-direction: row;
             }
 

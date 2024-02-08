@@ -126,7 +126,7 @@ function createShowItems(show) {
 
 }
 
-function renderShow() {
+function displayShow() {
     showsItems.forEach((show) => {
         const showData = createShowItems(show);
         showSection.appendChild(showData);
@@ -141,10 +141,37 @@ function renderShow() {
     });
 
 }
-renderShow();
+displayShow();
 
 
 function addTabletLabel() {
+    /*
+    let date, venue, location;
+    const showLayout = document.querySelector(".shows__layout");
+    const tabletLabelCont =document.createElement('div');
+    tabletLabelCont.classList.add('show__item--label-tablet');
+    const tabletDateLabel =document.createElement('p');
+    const tabletVenueLabel =document.createElement('p');
+    const tabletLocationLabel =document.createElement('p');
+    
+    showsItems.forEach((item) => {
+        date = item.dateLabel,
+        venue=item.venueLabel,
+        location=item.locationLabel
+    });
+
+    tabletDateLabel.textContent=date;
+    tabletVenueLabel.textContent=venue;
+    tabletLocationLabel.textContent=location;
+
+    tabletLabelCont.appendChild(tabletDateLabel);    
+    tabletLabelCont.appendChild(tabletVenueLabel);
+    tabletLabelCont.appendChild(tabletLocationLabel);
+    console.log(tabletLabelCont);
+
+    showLayout.insertAdjacentElement('beforebegin',tabletLabelCont);
+    */
+
     const tabletLabels = document.querySelectorAll(".show__item--label");
     for (let i = 0; i < 3; i++) {
         tabletLabels[i].classList.add("show__item--label-tablet");

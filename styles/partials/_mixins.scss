@@ -10,6 +10,7 @@
 	}
 }
 
+
 @mixin setPadding {
     padding: 0 1rem;
 }
@@ -30,4 +31,8 @@
 
 @mixin inactive{
 	color: $ternary_color;
+}
+
+@mixin subHeader{
+	
 }

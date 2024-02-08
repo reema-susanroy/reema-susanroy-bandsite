@@ -482,4 +482,127 @@ a {
 }
 .photo__gallery__item img:hover {
   filter: grayscale(0%);
+}
+
+.conversations__header {
+  padding: 0 1rem;
+  line-height: 2rem;
+  padding-top: 20px;
+}
+@media (min-width: 768px) {
+  .conversations__header {
+    padding: 2rem 2rem 1rem 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .conversations__header {
+    padding: 0 9rem;
+    font-family: "Avenir Next LT Pro-Demi";
+  }
+}
+
+@media (min-width: 1280px) {
+  .conversations__header--title {
+    padding: 3rem 1.25rem 1.5rem 1.25rem;
+    font-family: "Avenir Next LT Pro-Demi";
+  }
+}
+
+.container {
+  display: flex;
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 20rem;
+  }
+}
+
+.subcontainer1 {
+  padding-top: 2rem;
+}
+
+.subcontainer2 {
+  flex: 1;
+}
+
+.conversations__form--user {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 1rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .align-button {
+    flex-wrap: wrap;
+    align-content: flex-end;
+  }
+}
+
+.conversations__form--userImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.conversations__form--userImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.username {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: #FAFAFA;
+}
+
+label {
+  font-size: 0.8rem;
+  color: #AFAFAF;
+}
+
+.button {
+  text-transform: uppercase;
+  align-items: center;
+  color: #FFFFFF;
+  background-color: #323232;
+  height: 2.5rem;
+  /* text-align: center; */
+  justify-content: center;
+  border-radius: 4px;
+}
+@media (min-width: 768px) {
+  .button {
+    width: 150px;
+    padding: 0 32px;
+  }
+}
+.conversations {
+  padding: 1rem;
+}
+
+::-moz-placeholder {
+  color: black;
+}
+
+::placeholder {
+  color: black;
+}
+
+#username {
+  height: 36px;
+}
+
+input:invalid {
+  border: 21x solid #D22D2D;
 }/*# sourceMappingURL=bio.css.map */
