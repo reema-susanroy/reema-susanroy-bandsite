@@ -60,6 +60,7 @@ const showSection = document.querySelector(".shows__layout");
 
 
 function createShowItems(show) {
+
     const showCont = document.createElement("div");
     showCont.classList.add("show__item");
 
@@ -101,24 +102,27 @@ function createShowItems(show) {
     buttonCont.textContent = show.buttonItem;
 
 
-    dateCont.appendChild(dateLabel);
+    /*dateCont.appendChild(dateLabel);
     dateCont.appendChild(dateContent);
     venueCont.appendChild(venueLabel);
     venueCont.appendChild(venueContent);
     locationCont.appendChild(locationLabel);
     locationCont.appendChild(locationContent);
 
+
+
+    
     showCont.appendChild(dateCont);
     showCont.appendChild(venueCont);
-    showCont.appendChild(locationCont);
+    showCont.appendChild(locationCont);*/
 
 
-    /*showCont.appendChild(dateLabel);
+    showCont.appendChild(dateLabel);
     showCont.appendChild(dateContent);
     showCont.appendChild(venueLabel);
     showCont.appendChild(venueContent);
     showCont.appendChild(locationLabel);
-    showCont.appendChild(locationContent);*/
+    showCont.appendChild(locationContent);
 
     showCont.appendChild(buttonCont);
 
@@ -144,37 +148,27 @@ function displayShow() {
 displayShow();
 
 
-function addTabletLabel() {
-    /*
-    let date, venue, location;
-    const showLayout = document.querySelector(".shows__layout");
-    const tabletLabelCont =document.createElement('div');
-    tabletLabelCont.classList.add('show__item--label-tablet');
-    const tabletDateLabel =document.createElement('p');
-    const tabletVenueLabel =document.createElement('p');
-    const tabletLocationLabel =document.createElement('p');
-    
-    showsItems.forEach((item) => {
-        date = item.dateLabel,
-        venue=item.venueLabel,
-        location=item.locationLabel
-    });
-
-    tabletDateLabel.textContent=date;
-    tabletVenueLabel.textContent=venue;
-    tabletLocationLabel.textContent=location;
-
-    tabletLabelCont.appendChild(tabletDateLabel);    
+function addTabletLabel(data) {
+    const tabletLabelCont =document.createElement("div");
+    tabletLabelCont.classList.add('show__layout--label-tablet');
+    showSection.prepend(tabletLabelCont);
+    const tabletDateLabel = document.createElement("p");
+    tabletDateLabel.classList.add('show__layout--label-tablet');
+    tabletDateLabel.textContent= data[0].dateLabel;
+    tabletLabelCont.appendChild(tabletDateLabel);
+    const tabletVenueLabel = document.createElement("p");
+    tabletVenueLabel.classList.add('show__layout--label-tablet');
+    tabletVenueLabel.textContent =data[0].venueLabel;
     tabletLabelCont.appendChild(tabletVenueLabel);
-    tabletLabelCont.appendChild(tabletLocationLabel);
-    console.log(tabletLabelCont);
+    const tabletLocationLabel = document.createElement("p");
+    tabletLocationLabel.classList.add('show__layout--label-tablet');
+    tabletLocationLabel.textContent =data[0].locationLabel;
+    tabletLabelCont.appendChild(tabletLocationLabel);   
 
-    showLayout.insertAdjacentElement('beforebegin',tabletLabelCont);
-    */
-
-    const tabletLabels = document.querySelectorAll(".show__item--label");
-    for (let i = 0; i < 3; i++) {
-        tabletLabels[i].classList.add("show__item--label-tablet");
-    }
+    // console.log(tabletLabelCont);
+//    const tabletLabels = document.querySelectorAll(".show__item--label");
+//     for (let i = 0; i < 3; i++) {
+//         tabletLabels[i].classList.add("show__item--label-tablet");
+//     }
 }
-addTabletLabel();
+addTabletLabel(showsItems);

@@ -20,10 +20,11 @@ const defaultComments = [
 
 showAllComments();
 
-function showAllComments(){
-defaultComments.forEach((comment) => {
-    displayComment(comment.name, comment.date, comment.comment);
-}) ;
+function showAllComments() {
+    commentSection.innerHTML = '';
+    defaultComments.forEach((comment) => {
+        displayComment(comment.name, comment.date, comment.comment);
+    });
 }
 
 
@@ -76,48 +77,88 @@ function displayComment(userName, date, userComment) {
 
 
 const commentForm = document.getElementById('commentForm');
+const formErrors = document.querySelector(".formError");
+const nameInput = document.getElementById('username');
+const commentInput = document.getElementById('userComment');
+// formErrors
+commentInput.classList.remove("error");
+nameInput.classList.remove("error");
 
 commentForm.addEventListener('submit', function (event) {
     event.preventDefault();
-
+    formErrors.innerText = "";
+    commentInput.classList.remove("error");
+    nameInput.classList.remove("error");
     const userName = document.getElementById('username').value;
     const userComment = document.getElementById('userComment').value;
-    const currentDate = new Date().toLocaleDateString('en-US', {
+    const currentDate = new Date();
+    console.log(currentDate);
+    
+    /*.toLocaleDateString('en-US', {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit'
-      });
+    });*/
 
+
+    if ((userName === "") || (userComment === "")) {
+        if ((userName === "") && (userComment === "")) {
+
+            formErrors.innerText = "Enter a valid username and comment";
+            nameInput.classList.add("error");
+            commentInput.classList.add("error");
+            return;
+        }
+        else if (userName === "") {
+            formErrors.innerText = "Enter a valid name";
+            nameInput.classList.add("error");
+            return;
+        }
+        else {
+            formErrors.innerText = "Enter a valid comment";
+            commentInput.classList.add("error");
+            return;
+        }
+    }
     const newComment = {
         name: userName,
         date: currentDate,
         comment: userComment
-      };
-      defaultComments.push(newComment);
+    };
+    defaultComments.unshift(newComment);
 
-      commentForm.reset();
+    commentForm.reset();
+    // console.log(defaultComments);
+    //   sortingArray();
+    // console.log("here");
+    // console.log(defaultComments);
+    //   defaultComments.sort((a, b) => new Date(b.date) - new Date(a.date));
+    showAllComments();
 
-      sortComments();
-    //   defaultComments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-      displayNewComments()
+});
 
-})
 
+/*
 function displayNewComments(){
     commentSection.innerHTML = '';
-    for (let i=0; i<3; i++){
+    // let counter = 0;
+    for (let i= 0 ; i<3 ; i++){
         displayComment(defaultComments[i].name, defaultComments[i].date , defaultComments[i].comment);
+        // counter++;
+        // if(counter === 3){
+        //     break;
+        // }
     }
     
 }
 
-
-
-
-
-
-
-
-
+/*
+function sortingArray() {
+    formCommentArray.sort(function(a, b) {
+      let aDate = new Date(a.timeStamp);
+      let bDate = new Date(b.timeStamp);
+      return aDate - bDate;
+    });
+    };*/
 
 

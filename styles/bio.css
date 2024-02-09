@@ -603,8 +603,8 @@ label {
   height: 36px;
 }
 
-input:invalid {
-  border: 21x solid #D22D2D;
+.error {
+  border: 2px solid #D22D2D;
 }
 
 /*-----------------Comment -----------------*/
@@ -652,6 +652,7 @@ input:invalid {
 
 .comment__user--comment {
   padding: 1rem 0;
+  width: 100vw;
 }
 
 .comment__user--comment-cont {
@@ -667,4 +668,11 @@ input:invalid {
 
 .comment__user--date {
   flex: 1;
+}
+
+.formError {
+  display: flex;
+  flex-direction: column;
+  color: red;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=bio.css.map */

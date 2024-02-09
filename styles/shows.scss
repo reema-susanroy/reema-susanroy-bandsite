@@ -54,7 +54,7 @@
             @include setPadding_desktop();
             flex-direction: row;
             gap: 6rem;
-            }
+        }
 
         &--song {
             width: 80%;
@@ -89,7 +89,8 @@
 
 .shows {
     padding: 2rem 1rem;
-    @include desktop{
+
+    @include desktop {
         display: flex;
         justify-content: space-around;
     }
@@ -104,9 +105,25 @@
         display: flex;
         flex-direction: column;
 
-        @include desktop{
+        @include desktop {
             flex: 1;
+            padding: 0 9rem;
         }
+    }
+}
+
+.show__layout--label-tablet {
+    display: none;
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        width: 80%;
+        padding: .5rem;
+        color: $secondary_text_color;
+        text-transform: uppercase;
+        font-size: .8rem;
     }
 }
 
@@ -117,7 +134,6 @@
         flex: 1;
     }
 }
-
 
 .show__item {
     display: flex;
@@ -130,8 +146,14 @@
         justify-content: space-around;
         align-items: center;
     }
-    &:hover{
+
+    &:hover {
         background-color: $alternative_background_color;
+        transition: background-color 0.3s;
+    }
+
+    &.selected {
+        background-color: $ternary_color;
     }
 
     &--label {
@@ -140,28 +162,19 @@
         font-size: 14px;
 
         @include tablet {
-             display: none;
-        }
-        &-tablet{
-            // display: none;
-
-            @include tablet{
-                width: 50%;
-            display: flex;
-            justify-content: space-around;
-            flex-direction: row;
-            }
-
+            display: none;
         }
     }
-
-
     &--value {
         color: $primary_color;
         font-weight: bold;
         padding: 1rem 0;
-    }
+        flex: 1;
 
+        @include tablet {
+            padding: 1rem;
+        }
+    }
     &--button {
         text-transform: uppercase;
         color: $primary_text_color;
@@ -182,8 +195,4 @@
             // width: 17%;
         }
     }
-}
-
-.selected{
-    background-color: $ternary_color;
 }

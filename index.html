@@ -110,16 +110,17 @@
                     <div class=" subcontainer2">
                         <section class=" conversations__form--user">
                             <label for="username">NAME</label>
-                            <input class="username" type="text" name="name" id="username" placeholder="Enter your name"
-                                required>
+                            <input class="username error" type="text" name="name" id="username" placeholder="Enter your name">
                         </section>
                         <section class="conversations__form--user">
                             <label for="userComment">COMMENT</label>
-                            <textarea class="username" placeholder="Add a new comment" id="userComment" rows="4"></textarea>
+                            <textarea class="username error" placeholder="Add a new comment" id="userComment" rows="4"></textarea>
                         </section>
                         <section class="conversations__form--user align-button">
+                            <p class=" formError"></p>
                             <input class="button" type="submit" value="comment">
-                        </section>
+                        </section> 
+                        
                     </div>
 
                 </div>
