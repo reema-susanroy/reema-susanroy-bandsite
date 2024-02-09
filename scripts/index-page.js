@@ -26,11 +26,10 @@ function showAllComments() {
 
         //To convert date from string to Date() to perform sorting of comments in array
         const dateObject = new Date(comment.date);
-        const dateString = dateObject.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-        });
+        // console.log("get month:"+(dateObject.getMonth()));
+        // console.log("get day:"+(dateObject.getDate()));
+        // console.log("get year:"+(dateObject.getFullYear()));
+        const dateString = (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '/' + dateObject.getFullYear();
         displayComment(comment.name, dateString, comment.comment);
     });
 }
