@@ -23,10 +23,19 @@ showAllComments();
 function showAllComments() {
     commentSection.innerHTML = '';
     defaultComments.forEach((comment) => {
-        displayComment(comment.name, comment.date, comment.comment);
+
+        //To convert date from string to Date() to perform sorting of comments in array
+        const dateObject = new Date(comment.date);
+        const dateString = dateObject.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+        displayComment(comment.name, dateString, comment.comment);
     });
 }
 
+//create elements using DOM
 
 function displayComment(userName, date, userComment) {
 
@@ -70,36 +79,87 @@ function displayComment(userName, date, userComment) {
     userCont.appendChild(nameCommentCont);
 
     commentSection.appendChild(userCont);
-
-    // console.log(commentSection);
 }
-
-
 
 const commentForm = document.getElementById('commentForm');
 const formErrors = document.querySelector(".formError");
 const nameInput = document.getElementById('username');
 const commentInput = document.getElementById('userComment');
-// formErrors
+
+//To remove any error styling from the input fields
+
 commentInput.classList.remove("error");
 nameInput.classList.remove("error");
 
+//EventListener for form submission
+
 commentForm.addEventListener('submit', function (event) {
     event.preventDefault();
+
     formErrors.innerText = "";
     commentInput.classList.remove("error");
     nameInput.classList.remove("error");
+
     const userName = document.getElementById('username').value;
     const userComment = document.getElementById('userComment').value;
     const currentDate = new Date();
-    console.log(currentDate);
-    
-    /*.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    });*/
+    const timestamp = currentDate.getTime();
 
+    //Form input validation
+    if ((userName === "") || (userComment === "")) {
+        if ((userName === "") && (userComment === "")) {
+
+            formErrors.innerText = "Enter a valid username and comment";
+            nameInput.classList.add("error");
+            commentInput.classList.add("error");
+            return;
+        }
+        else if (userName === "") {
+            formErrors.innerText = "Enter a valid name";
+            nameInput.classList.add("error");
+            return;
+        }
+        else {
+            formErrors.innerText = "Enter a valid comment";
+            commentInput.classList.add("error");
+            return;
+        }
+    }
+
+    const newComment = {
+        name: userName,
+        date: timestamp,
+        comment: userComment
+    };
+
+    defaultComments.push(newComment);
+    sortingArray();
+
+    // defaultComments.unshift(newComment); 
+
+    commentForm.reset();
+
+    showAllComments();
+
+});
+
+//Sort comments array 
+function sortingArray() {
+    defaultComments.sort(function (a, b) {
+        let adate = new Date(a.date);
+        let bdate = new Date(b.date);
+
+        let aTime = adate.getTime();
+        let bTime = bdate.getTime();
+
+        console.log(aTime);
+        console.log(bTime);
+        return bTime - aTime;
+    });
+};
+
+/*
+function validateUserInput(userName, userComment) {
 
     if ((userName === "") || (userComment === "")) {
         if ((userName === "") && (userComment === "")) {
@@ -120,45 +180,4 @@ commentForm.addEventListener('submit', function (event) {
             return;
         }
     }
-    const newComment = {
-        name: userName,
-        date: currentDate,
-        comment: userComment
-    };
-    defaultComments.unshift(newComment);
-
-    commentForm.reset();
-    // console.log(defaultComments);
-    //   sortingArray();
-    // console.log("here");
-    // console.log(defaultComments);
-    //   defaultComments.sort((a, b) => new Date(b.date) - new Date(a.date));
-    showAllComments();
-
-});
-
-
-/*
-function displayNewComments(){
-    commentSection.innerHTML = '';
-    // let counter = 0;
-    for (let i= 0 ; i<3 ; i++){
-        displayComment(defaultComments[i].name, defaultComments[i].date , defaultComments[i].comment);
-        // counter++;
-        // if(counter === 3){
-        //     break;
-        // }
-    }
-    
-}
-
-/*
-function sortingArray() {
-    formCommentArray.sort(function(a, b) {
-      let aDate = new Date(a.timeStamp);
-      let bDate = new Date(b.timeStamp);
-      return aDate - bDate;
-    });
-    };*/
-
-
+}*/
