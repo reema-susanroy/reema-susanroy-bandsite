@@ -567,7 +567,7 @@ a {
 }
 
 label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #AFAFAF;
 }
 
@@ -636,13 +636,14 @@ label {
 }
 
 .comment__user--name {
-  width: 80%;
+  width: 50%;
 }
 
 .comment__user--date {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  width: 100vw;
 }
 
 .comment__user {
@@ -652,14 +653,12 @@ label {
 
 .comment__user--comment {
   padding: 1rem 0;
-  width: 100vw;
 }
 
 .comment__user--comment-cont {
-  display: flex;
-  flex-direction: column;
   max-width: 100%;
   overflow: hidden;
+  word-wrap: break-word;
 }
 
 .comment__user--image-cont {
@@ -674,5 +673,7 @@ label {
   display: flex;
   flex-direction: column;
   color: red;
-  margin-bottom: 1rem;
+  padding: 0 1rem 0;
+  font-weight: bold;
+  font-size: 12px;
 }/*# sourceMappingURL=bio.css.map */

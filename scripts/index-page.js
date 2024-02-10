@@ -25,12 +25,20 @@ function showAllComments() {
     defaultComments.forEach((comment) => {
 
         //To convert date from string to Date() to perform sorting of comments in array
+        //calculate dynamic date for each comment
+
+
+
         const dateObject = new Date(comment.date);
-        // console.log("get month:"+(dateObject.getMonth()));
-        // console.log("get day:"+(dateObject.getDate()));
-        // console.log("get year:"+(dateObject.getFullYear()));
-        const dateString = (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '/' + dateObject.getFullYear();
-        displayComment(comment.name, dateString, comment.comment);
+
+        const dynamicTime = dynamicTimeCalc(dateObject);
+       
+
+        // const dateString = (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '/' + dateObject.getFullYear();
+        // displayComment(comment.name, dateString, comment.comment);
+
+        displayComment(comment.name, dynamicTime, comment.comment);
+
     });
 }
 
@@ -105,24 +113,8 @@ commentForm.addEventListener('submit', function (event) {
     const timestamp = currentDate.getTime();
 
     //Form input validation
-    if ((userName === "") || (userComment === "")) {
-        if ((userName === "") && (userComment === "")) {
-
-            formErrors.innerText = "Enter a valid username and comment";
-            nameInput.classList.add("error");
-            commentInput.classList.add("error");
-            return;
-        }
-        else if (userName === "") {
-            formErrors.innerText = "Enter a valid name";
-            nameInput.classList.add("error");
-            return;
-        }
-        else {
-            formErrors.innerText = "Enter a valid comment";
-            commentInput.classList.add("error");
-            return;
-        }
+    if (!validateUserInput(userName, userComment)) {
+        return;
     }
 
     const newComment = {
@@ -147,36 +139,58 @@ function sortingArray() {
     defaultComments.sort(function (a, b) {
         let adate = new Date(a.date);
         let bdate = new Date(b.date);
-
         let aTime = adate.getTime();
         let bTime = bdate.getTime();
 
-        console.log(aTime);
-        console.log(bTime);
         return bTime - aTime;
     });
 };
 
-/*
 function validateUserInput(userName, userComment) {
 
     if ((userName === "") || (userComment === "")) {
         if ((userName === "") && (userComment === "")) {
-
             formErrors.innerText = "Enter a valid username and comment";
             nameInput.classList.add("error");
             commentInput.classList.add("error");
-            return;
+            return false;
         }
         else if (userName === "") {
             formErrors.innerText = "Enter a valid name";
             nameInput.classList.add("error");
-            return;
+            return false;
         }
         else {
             formErrors.innerText = "Enter a valid comment";
             commentInput.classList.add("error");
-            return;
+            return false;
         }
     }
-}*/
+    return true;
+}
+
+function dynamicTimeCalc(commmetDate) {
+    const currentTime = new Date();
+    const commentDate = commmetDate;
+
+    const timeDifference = currentTime - commentDate;
+    const seconds = Math.floor(timeDifference / 1000);
+    console.log(seconds)
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    let timeString = '';
+
+  if (days > 0) {
+    timeString = days + ' day' + (days > 1 ? 's' : '') + ' ago';
+  } else if (hours > 0) {
+    timeString = hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
+  } else if (minutes > 0) {
+    timeString = minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
+  } else {
+    timeString = seconds + ' second' + (seconds !== 1 ? 's' : '') + ' ago';
+  }
+
+  return timeString;
+}
+
