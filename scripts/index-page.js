@@ -95,8 +95,8 @@ const commentInput = document.getElementById('userComment');
 
 //To remove any error styling from the input fields
 
-commentInput.classList.remove("error");
-nameInput.classList.remove("error");
+commentInput.classList.remove("user-error");
+nameInput.classList.remove("user-error");
 
 //EventListener for form submission
 
@@ -104,8 +104,8 @@ commentForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     formErrors.innerText = "";
-    commentInput.classList.remove("error");
-    nameInput.classList.remove("error");
+    commentInput.classList.remove("user-error");
+    nameInput.classList.remove("user-error");
 
     const userName = document.getElementById('username').value;
     const userComment = document.getElementById('userComment').value;
@@ -151,18 +151,18 @@ function validateUserInput(userName, userComment) {
     if ((userName === "") || (userComment === "")) {
         if ((userName === "") && (userComment === "")) {
             formErrors.innerText = "Enter a valid username and comment";
-            nameInput.classList.add("error");
-            commentInput.classList.add("error");
+            nameInput.classList.add("user-error");
+            commentInput.classList.add("user-error");
             return false;
         }
         else if (userName === "") {
             formErrors.innerText = "Enter a valid name";
-            nameInput.classList.add("error");
+            nameInput.classList.add("user-error");
             return false;
         }
         else {
             formErrors.innerText = "Enter a valid comment";
-            commentInput.classList.add("error");
+            commentInput.classList.add("user-error");
             return false;
         }
     }

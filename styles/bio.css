@@ -471,8 +471,7 @@ a {
     max-width: 25vw;
   }
 }
-
-.photo__gallery__item img {
+.photo__gallery img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -480,61 +479,89 @@ a {
   transition: filter 0.3s ease;
   filter: grayscale(100%);
 }
-.photo__gallery__item img:hover {
+.photo__gallery img:hover {
   filter: grayscale(0%);
 }
 
-.conversations__header {
+/*
+.photo__gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    filter: grayscale(100%);
+
+    &:hover {
+        filter: grayscale(0%);
+    }
+}*/
+.form__header {
   padding: 0 1rem;
   line-height: 2rem;
   padding-top: 20px;
 }
 @media (min-width: 768px) {
-  .conversations__header {
+  .form__header {
     padding: 2rem 2rem 1rem 2rem;
   }
 }
 @media (min-width: 1280px) {
-  .conversations__header {
+  .form__header {
     padding: 0 9rem;
     font-family: "Avenir Next LT Pro-Demi";
   }
 }
-
 @media (min-width: 1280px) {
-  .conversations__header--title {
+  .form__header--title {
     padding: 3rem 1.25rem 1.5rem 1.25rem;
     font-family: "Avenir Next LT Pro-Demi";
   }
 }
 
-.container {
+.form__comments {
   display: flex;
   padding: 1rem;
 }
 @media (min-width: 768px) {
-  .container {
+  .form__comments {
     padding: 0 5rem;
   }
 }
 @media (min-width: 1280px) {
-  .container {
+  .form__comments {
     padding: 0 20rem;
   }
 }
-
-.subcontainer1 {
+.form__comments-image {
   padding-top: 2rem;
 }
-
-.subcontainer2 {
+.form__comments--userImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.form__comments--userImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.form__comments--userinput {
   flex: 1;
 }
-
-.conversations__form--user {
+.form__comments--input {
   display: flex;
   flex-direction: column;
   padding: 1rem 0 1rem 1rem;
+}
+.form__comments--input-box {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: #FAFAFA;
 }
 
 @media (min-width: 768px) {
@@ -544,40 +571,12 @@ a {
   }
 }
 
-.conversations__form--userImage {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.conversations__form--userImage img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.username {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 0.5rem;
-  background-color: #FAFAFA;
-}
-
-label {
-  font-size: 0.7rem;
-  color: #AFAFAF;
-}
-
 .button {
   text-transform: uppercase;
   align-items: center;
   color: #FFFFFF;
   background-color: #323232;
   height: 2.5rem;
-  /* text-align: center; */
   justify-content: center;
   border-radius: 4px;
 }
@@ -587,8 +586,9 @@ label {
     padding: 0 32px;
   }
 }
-.conversations {
-  padding: 1rem;
+label {
+  font-size: 0.7rem;
+  color: #AFAFAF;
 }
 
 ::-moz-placeholder {
@@ -603,7 +603,7 @@ label {
   height: 36px;
 }
 
-.error {
+.user-error {
   border: 2px solid #D22D2D;
 }
 
@@ -616,12 +616,44 @@ label {
     padding: 0 5rem;
   }
 }
+@media (min-width: 1280px) {
+  .comments {
+    padding: 0 20rem;
+  }
+}
 
+.comment__user {
+  display: flex;
+  font-size: 0.8rem;
+}
+.comment__user--image-cont {
+  padding-right: 1rem;
+}
 .comment__user--image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: #E1E1E1;
+}
+.comment__user--comment-cont {
+  max-width: 100%;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.comment__user--name-cont {
+  display: flex;
+}
+.comment__user--name {
+  width: 50%;
+}
+.comment__user--date {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+}
+.comment__user--comment {
+  padding: 1rem 0;
 }
 
 /*
@@ -631,44 +663,6 @@ label {
     border-radius: 50%;
     background-color: red    ;
 }*/
-.comment__user--name-cont {
-  display: flex;
-}
-
-.comment__user--name {
-  width: 50%;
-}
-
-.comment__user--date {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  width: 100vw;
-}
-
-.comment__user {
-  display: flex;
-  font-size: 0.8rem;
-}
-
-.comment__user--comment {
-  padding: 1rem 0;
-}
-
-.comment__user--comment-cont {
-  max-width: 100%;
-  overflow: hidden;
-  word-wrap: break-word;
-}
-
-.comment__user--image-cont {
-  padding-right: 1rem;
-}
-
-.comment__user--date {
-  flex: 1;
-}
-
 .formError {
   display: flex;
   flex-direction: column;
