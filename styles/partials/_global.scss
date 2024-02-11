@@ -84,15 +84,11 @@ p {
             &-item {
                 color: $ternary_color;
             }
-            // @include tablet {
-            //     margin: 0 2rem;
-            // }
         }
     }
     &__menu--item {
         &:hover {
             color: $primary_text_color;
-            font-weight: 600;
         }
     }
 }

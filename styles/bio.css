@@ -114,7 +114,6 @@ p {
 }
 .header__menu--item:hover {
   color: #FFFFFF;
-  font-weight: 600;
 }
 
 a {
@@ -483,18 +482,6 @@ a {
   filter: grayscale(0%);
 }
 
-/*
-.photo__gallery__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.3s ease;
-    filter: grayscale(100%);
-
-    &:hover {
-        filter: grayscale(0%);
-    }
-}*/
 .form__header {
   padding: 0 1rem;
   line-height: 2rem;
@@ -558,10 +545,15 @@ a {
   padding: 1rem 0 1rem 1rem;
 }
 .form__comments--input-box {
-  border: 1px solid #ccc;
+  border: 1px solid #E1E1E1;
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: 0.75rem;
   background-color: #FAFAFA;
+}
+@media (min-width: 768px) {
+  .form__comments--input-box {
+    padding: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -572,6 +564,7 @@ a {
 }
 
 .button {
+  cursor: pointer;
   text-transform: uppercase;
   align-items: center;
   color: #FFFFFF;
@@ -586,34 +579,42 @@ a {
     padding: 0 32px;
   }
 }
+.button:hover {
+  background-color: #000000;
+}
+
 label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: #AFAFAF;
 }
 
 ::-moz-placeholder {
-  color: black;
+  color: #323232;
 }
 
 ::placeholder {
-  color: black;
+  color: #323232;
 }
 
 #username {
   height: 36px;
+}
+@media (min-width: 768px) {
+  #username {
+    height: 48px;
+  }
 }
 
 .user-error {
   border: 2px solid #D22D2D;
 }
 
-/*-----------------Comment -----------------*/
 .comments {
   padding: 1rem;
 }
 @media (min-width: 768px) {
   .comments {
-    padding: 0 5rem;
+    padding: 2rem 5rem;
   }
 }
 @media (min-width: 1280px) {
@@ -624,7 +625,9 @@ label {
 
 .comment__user {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  border-top: 2px solid #E1E1E1;
+  padding: 1rem 0;
 }
 .comment__user--image-cont {
   padding-right: 1rem;
@@ -656,13 +659,6 @@ label {
   padding: 1rem 0;
 }
 
-/*
-.comment__user--comment-cont{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: red    ;
-}*/
 .formError {
   display: flex;
   flex-direction: column;

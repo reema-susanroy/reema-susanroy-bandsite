@@ -114,7 +114,6 @@ p {
 }
 .header__menu--item:hover {
   color: #FFFFFF;
-  font-weight: 600;
 }
 
 a {
@@ -363,6 +362,7 @@ a {
   .shows {
     display: flex;
     justify-content: space-around;
+    padding: 3rem 6rem 3rem 9rem;
   }
 }
 @media (min-width: 768px) {
@@ -377,7 +377,7 @@ a {
 @media (min-width: 1280px) {
   .shows__layout {
     flex: 1;
-    padding: 0 9rem;
+    padding: 0 3rem;
   }
 }
 

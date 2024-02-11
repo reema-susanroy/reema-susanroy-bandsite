@@ -24,26 +24,16 @@ function showAllComments() {
     commentSection.innerHTML = '';
     defaultComments.forEach((comment) => {
 
-        //To convert date from string to Date() to perform sorting of comments in array
-        //calculate dynamic date for each comment
-
-
-
+        //To convert date from string to Date() inorder to perform sorting and dynamic time calculations
         const dateObject = new Date(comment.date);
-
         const dynamicTime = dynamicTimeCalc(dateObject);
-       
-
         // const dateString = (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '/' + dateObject.getFullYear();
         // displayComment(comment.name, dateString, comment.comment);
-
         displayComment(comment.name, dynamicTime, comment.comment);
-
     });
 }
 
-//create elements using DOM
-
+//To create elements using DOM
 function displayComment(userName, date, userComment) {
 
     const userCont = document.createElement("div");
@@ -112,7 +102,6 @@ commentForm.addEventListener('submit', function (event) {
     const currentDate = new Date();
     const timestamp = currentDate.getTime();
 
-    //Form input validation
     if (!validateUserInput(userName, userComment)) {
         return;
     }
@@ -124,18 +113,17 @@ commentForm.addEventListener('submit', function (event) {
     };
 
     defaultComments.push(newComment);
-    sortingArray();
+    sortArray();
 
     // defaultComments.unshift(newComment); 
 
     commentForm.reset();
-
     showAllComments();
 
 });
 
 //Sort comments array 
-function sortingArray() {
+function sortArray() {
     defaultComments.sort(function (a, b) {
         let adate = new Date(a.date);
         let bdate = new Date(b.date);
@@ -146,6 +134,7 @@ function sortingArray() {
     });
 };
 
+//Validate user inputs
 function validateUserInput(userName, userComment) {
 
     if ((userName === "") || (userComment === "")) {
@@ -169,28 +158,29 @@ function validateUserInput(userName, userComment) {
     return true;
 }
 
+//Calculate dynamic timestamp
 function dynamicTimeCalc(commmetDate) {
     const currentTime = new Date();
     const commentDate = commmetDate;
+    const calcTime = currentTime - commentDate;
 
-    const timeDifference = currentTime - commentDate;
-    const seconds = Math.floor(timeDifference / 1000);
-    console.log(seconds)
+    const seconds = Math.floor(calcTime / 1000);
+    // console.log(seconds);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
-    let timeString = '';
+    let time;
 
-  if (days > 0) {
-    timeString = days + ' day' + (days > 1 ? 's' : '') + ' ago';
-  } else if (hours > 0) {
-    timeString = hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
-  } else if (minutes > 0) {
-    timeString = minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
-  } else {
-    timeString = seconds + ' second' + (seconds !== 1 ? 's' : '') + ' ago';
-  }
+    if (days > 0) {
+        time = days + ' day' + (days > 1 ? 's' : '') + ' ago';
+    } else if (hours > 0) {
+        time = hours + ' hour' + (hours > 1 ? 's' : '') + ' ago';
+    } else if (minutes > 0) {
+        time = minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
+    } else {
+        time = seconds + ' second' + (seconds !== 1 ? 's' : '') + ' ago';
+    }
 
-  return timeString;
+    return time;
 }
 

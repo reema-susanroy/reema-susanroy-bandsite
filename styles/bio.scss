@@ -210,20 +210,6 @@
     }
 }
 
-/*
-.photo__gallery__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: filter 0.3s ease;
-    filter: grayscale(100%);
-
-    &:hover {
-        filter: grayscale(0%);
-    }
-}*/
-
-
 .form__header {
     @include setPadding();
     line-height: 2rem;
@@ -235,7 +221,6 @@
 
     @include desktop {
         @include setPadding_desktop();
-        // padding: 3rem 1.25rem 1.5rem 1.25rem;
         font-family: "Avenir Next LT Pro-Demi";
     }
 
@@ -285,15 +270,19 @@
     &--input {
         display: flex;
         flex-direction: column;
-        //  padding: 1rem;
         padding: 1rem 0 1rem 1rem;
     }
 
     &--input-box {
-        border: 1px solid #ccc;
+        border: 1px solid $ternary_color;
         border-radius: 4px;
-        padding: 0.5rem;
+        padding: 0.75rem;
+        // line-height: 48px;
         background-color: $alternative_background_color ;
+
+        @include tablet{
+            padding: 1rem;
+        }
     }
 }
 
@@ -305,10 +294,11 @@
 }
 
 .button {
+    cursor: pointer;
     text-transform: uppercase;
     align-items: center;
     color: #FFFFFF;
-    background-color: #323232;
+    background-color: $primary_color;
     height: 2.5rem;
     justify-content: center;
     border-radius: 4px;
@@ -318,63 +308,48 @@
         padding: 0 32px;
 
     }
-
-    @include desktop {}
+    &:hover{
+        background-color: $secondary_color;
+    }
 }
 
 label {
-    font-size: .7rem;
+    font-size: .75rem;
     color: $secondary_text_color;
 }
 
 ::placeholder {
-    color: black;
+    color: $primary_color;
 }
 
 #username {
     height: 36px;
+    @include tablet{
+        height: 48px;
+    }
 }
 
 .user-error {
-    border: 2px solid #D22D2D;
+    border: 2px solid $user_Error;
 }
-
-
-
-
-/*-----------------Comment -----------------*/
 
 .comments {
     padding: 1rem;
 
     @include tablet {
-        padding: 0 5rem;
+        padding: 2rem 5rem;
     }
     @include desktop{
         padding: 0 20rem;
     }
 }
 
-// &__user--cont {
-// }
-
-// &__user--image-cont {
-//     color: aqua;
-//     // width: 40px;
-//     // height: 40px;
-//     // border-radius: 50%;
-//     // background-color: $ternary_color;
-
-
-//     &__user--image{
-//         background-image: url('../assets/images/Mohan-muruge.jpg');
-
-//     }
-// } 
-
 .comment__user {
     display: flex;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #E1E1E1;
+    padding: 1rem 0;
+    // border-bottom: 1px solid #E1E1E1;
 
     &--image-cont {
         padding-right: 1rem;
@@ -388,29 +363,20 @@ label {
     }
 
     &--comment-cont {
-        // display: flex;
-        // align-items: flex-start;
-        // flex-direction: column;
         max-width: 100%;
         overflow: hidden;
         word-wrap: break-word;
     }
 
     &--name-cont {
-        //     width: 100%;
         display: flex;
-        //   justify-content: space-between;
-        // gap: 5rem;
     }
 
     &--name {
         width: 50%;
-        // padding-right: 5rem;
     }
 
     &--date {
-        // width: 80%;
-        //     display: flex;
         flex: 1;
         display: flex;
         justify-content: flex-end;
@@ -420,85 +386,11 @@ label {
     &--comment {
         padding: 1rem 0;
     }
-
-    // &--comment-cont{
-    //     color:red;
-
-
-    // &__user--name-cont {
-    //     color: aqua;
-
-    //     &--name {
-    //         color: purple;
-    //     }
-
-    // }
 }
-
-/*
-.comment__user--comment-cont{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: red    ;
-}*/
-
-// .comment__user--name-cont {
-//     //     width: 100%;
-//     display: flex;
-//     //   justify-content: space-between;
-//     // gap: 5rem;
-
-// }
-
-// .comment__user--name {
-//     width: 50%;
-//     // padding-right: 5rem;
-// }
-
-// .comment__user--date {
-//     // width: 80%;
-//     //     display: flex;
-//     flex: 1;
-//     display: flex;
-//     justify-content: flex-end;
-//     width: 100vw;
-// }
-
-
-// .comment__user {
-//     display: flex;
-//     font-size: 0.8rem;
-
-// }
-
-// .comment__user--comment {
-//     padding: 1rem 0;
-// }
-
-// .comment__user--comment-cont {
-//     // display: flex;
-//     // align-items: flex-start;
-//     // flex-direction: column;
-//     max-width: 100%;
-//     overflow: hidden;
-//     word-wrap: break-word;
-// }
-
-// .comment__user--image-cont {
-//     padding-right: 1rem;
-// }
-
-// .comment__user--date {
-//     flex: 1;
-// }
-
-
 
 .formError {
     display: flex;
     flex-direction: column;
-    // justify-content: ;
     color: red;
     padding: 0 1rem 0;
     font-weight: bold;

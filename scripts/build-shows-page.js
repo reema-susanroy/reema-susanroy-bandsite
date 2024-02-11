@@ -8,7 +8,6 @@ const showsItems = [
         locationItem: "San Francisco, CA",
         buttonItem: "Buy Tickets"
     },
-
     {
         dateLabel: "date",
         venueLabel: "venue",
@@ -58,9 +57,8 @@ const showsItems = [
 
 const showSection = document.querySelector(".shows__layout");
 
-
+//To create elements using DOM
 function createShowItems(show) {
-
     const showCont = document.createElement("div");
     showCont.classList.add("show__item");
 
@@ -82,7 +80,6 @@ function createShowItems(show) {
     venueContent.classList.add("show__item--value")
     venueContent.textContent = show.venueItem;
 
-
     const locationCont = document.createElement("div");
     locationCont.classList.add("show__item--cont")
     const locationLabel = document.createElement("p");
@@ -91,45 +88,22 @@ function createShowItems(show) {
     const locationContent = document.createElement("p");
     locationContent.classList.add("show__item--value")
     locationContent.textContent = show.locationItem;
-
-
-    // const buttonCont = document.createElement("button");
-    // buttonCont.classList.add("show__item--button");
-    // buttonCont.textContent = show.buttonItem;
-
     const buttonCont = document.createElement("p");
     buttonCont.classList.add("show__item--button");
+
     buttonCont.textContent = show.buttonItem;
-
-
-    /*dateCont.appendChild(dateLabel);
-    dateCont.appendChild(dateContent);
-    venueCont.appendChild(venueLabel);
-    venueCont.appendChild(venueContent);
-    locationCont.appendChild(locationLabel);
-    locationCont.appendChild(locationContent);
-
-
-
-    
-    showCont.appendChild(dateCont);
-    showCont.appendChild(venueCont);
-    showCont.appendChild(locationCont);*/
-
-
     showCont.appendChild(dateLabel);
     showCont.appendChild(dateContent);
     showCont.appendChild(venueLabel);
     showCont.appendChild(venueContent);
     showCont.appendChild(locationLabel);
     showCont.appendChild(locationContent);
-
     showCont.appendChild(buttonCont);
 
     return showCont;
-
 }
 
+//To disply all the shows
 function displayShow() {
     showsItems.forEach((show) => {
         const showData = createShowItems(show);
@@ -143,11 +117,10 @@ function displayShow() {
             this.classList.add('selected');
         });
     });
-
 }
 displayShow();
 
-
+//To create labels for tablet view
 function addTabletLabel(data) {
     const tabletLabelCont =document.createElement("div");
     tabletLabelCont.classList.add('show__layout--label-tablet');
@@ -164,11 +137,5 @@ function addTabletLabel(data) {
     tabletLocationLabel.classList.add('show__layout--label-tablet');
     tabletLocationLabel.textContent =data[0].locationLabel;
     tabletLabelCont.appendChild(tabletLocationLabel);   
-
-    // console.log(tabletLabelCont);
-//    const tabletLabels = document.querySelectorAll(".show__item--label");
-//     for (let i = 0; i < 3; i++) {
-//         tabletLabels[i].classList.add("show__item--label-tablet");
-//     }
 }
 addTabletLabel(showsItems);

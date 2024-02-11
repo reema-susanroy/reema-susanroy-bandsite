@@ -93,6 +93,7 @@
     @include desktop {
         display: flex;
         justify-content: space-around;
+        padding: 3rem 6rem 3rem 9rem;
     }
 
     &__title {
@@ -107,7 +108,8 @@
 
         @include desktop {
             flex: 1;
-            padding: 0 9rem;
+            // padding: 0 9rem;
+            padding: 0 3rem;
         }
     }
 }
