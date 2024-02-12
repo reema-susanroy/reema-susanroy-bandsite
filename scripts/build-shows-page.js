@@ -61,7 +61,6 @@ const showSection = document.querySelector(".shows__layout");
 function createShowItems(show) {
     const showCont = document.createElement("div");
     showCont.classList.add("show__item");
-
     const dateCont = document.createElement("div");
     dateCont.classList.add("show__item--cont")
     const dateLabel = document.createElement("p");
@@ -69,8 +68,8 @@ function createShowItems(show) {
     dateLabel.textContent = show.dateLabel;
     const dateContent = document.createElement("p");
     dateContent.classList.add("show__item--value")
+    dateContent.classList.add("show__item--date-style")
     dateContent.textContent = show.dateItem;
-
     const venueCont = document.createElement("div");
     venueCont.classList.add("show__item--cont")
     const venueLabel = document.createElement("p");
@@ -79,7 +78,6 @@ function createShowItems(show) {
     const venueContent = document.createElement("p");
     venueContent.classList.add("show__item--value")
     venueContent.textContent = show.venueItem;
-
     const locationCont = document.createElement("div");
     locationCont.classList.add("show__item--cont")
     const locationLabel = document.createElement("p");
@@ -90,7 +88,6 @@ function createShowItems(show) {
     locationContent.textContent = show.locationItem;
     const buttonCont = document.createElement("p");
     buttonCont.classList.add("show__item--button");
-
     buttonCont.textContent = show.buttonItem;
     showCont.appendChild(dateLabel);
     showCont.appendChild(dateContent);
@@ -99,7 +96,6 @@ function createShowItems(show) {
     showCont.appendChild(locationLabel);
     showCont.appendChild(locationContent);
     showCont.appendChild(buttonCont);
-
     return showCont;
 }
 
@@ -108,7 +104,6 @@ function displayShow() {
     showsItems.forEach((show) => {
         const showData = createShowItems(show);
         showSection.appendChild(showData);
-
         showData.addEventListener('click', function () {
             const items = document.querySelectorAll('.show__item');
             items.forEach((item) => {

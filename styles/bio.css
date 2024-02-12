@@ -516,19 +516,20 @@ a {
 }
 @media (min-width: 1280px) {
   .form__comments {
-    padding: 0 20rem;
+    padding: 0 24rem;
   }
 }
 .form__comments-image {
   padding-top: 2rem;
 }
 .form__comments--userImage {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: #E1E1E1;
 }
 .form__comments--userImage img {
   width: 100%;
@@ -584,8 +585,9 @@ a {
 }
 
 label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #AFAFAF;
+  padding-bottom: 0.5rem;
 }
 
 ::-moz-placeholder {
@@ -619,15 +621,16 @@ label {
 }
 @media (min-width: 1280px) {
   .comments {
-    padding: 0 20rem;
+    padding: 2rem 24rem;
   }
 }
 
 .comment__user {
   display: flex;
   font-size: 0.9rem;
-  border-top: 2px solid #E1E1E1;
+  border-top: 1px solid #E1E1E1;
   padding: 1rem 0;
+  border-bottom: 1px solid #E1E1E1;
 }
 .comment__user--image-cont {
   padding-right: 1rem;
@@ -662,7 +665,7 @@ label {
 .formError {
   display: flex;
   flex-direction: column;
-  color: red;
+  color: #D22D2D;
   padding: 0 1rem 0;
   font-weight: bold;
   font-size: 12px;

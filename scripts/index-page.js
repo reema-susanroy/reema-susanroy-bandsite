@@ -23,35 +23,26 @@ showAllComments();
 function showAllComments() {
     commentSection.innerHTML = '';
     defaultComments.forEach((comment) => {
-
         //To convert date from string to Date() inorder to perform sorting and dynamic time calculations
         const dateObject = new Date(comment.date);
         const dynamicTime = dynamicTimeCalc(dateObject);
-        // const dateString = (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '/' + dateObject.getFullYear();
-        // displayComment(comment.name, dateString, comment.comment);
         displayComment(comment.name, dynamicTime, comment.comment);
     });
 }
 
 //To create elements using DOM
 function displayComment(userName, date, userComment) {
-
     const userCont = document.createElement("div");
     userCont.classList.add("comment__user")
-
     const imgCont = document.createElement("div");
     imgCont.classList.add("comment__user--image-cont")
-
     const imgEl = document.createElement("p");
     imgEl.classList.add("comment__user--image");
     imgCont.appendChild(imgEl);
-
     const nameCommentCont = document.createElement("div");
     nameCommentCont.classList.add("comment__user--comment-cont")
-
     const nameCont = document.createElement("div");
     nameCont.classList.add("comment__user--name-cont")
-
     const nameEl = document.createElement("p");
     nameEl.classList.add("comment__user--name");
     nameEl.textContent = userName;
@@ -60,21 +51,16 @@ function displayComment(userName, date, userComment) {
     dateEl.textContent = date;
     nameCont.appendChild(nameEl);
     nameCont.appendChild(dateEl);
-
     const commentCont = document.createElement("div");
     commentCont.classList.add("comment__user--comment-cont")
     const commentEl = document.createElement("p");
     commentEl.classList.add("comment__user--comment");
     commentEl.textContent = userComment;
     commentCont.appendChild(commentEl);
-
-
     nameCommentCont.appendChild(nameCont);
     nameCommentCont.appendChild(commentCont);
-
     userCont.appendChild(imgCont);
     userCont.appendChild(nameCommentCont);
-
     commentSection.appendChild(userCont);
 }
 
@@ -84,42 +70,32 @@ const nameInput = document.getElementById('username');
 const commentInput = document.getElementById('userComment');
 
 //To remove any error styling from the input fields
-
 commentInput.classList.remove("user-error");
 nameInput.classList.remove("user-error");
 
 //EventListener for form submission
-
 commentForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     formErrors.innerText = "";
     commentInput.classList.remove("user-error");
     nameInput.classList.remove("user-error");
-
     const userName = document.getElementById('username').value;
     const userComment = document.getElementById('userComment').value;
     const currentDate = new Date();
     const timestamp = currentDate.getTime();
-
     if (!validateUserInput(userName, userComment)) {
         return;
     }
-
     const newComment = {
         name: userName,
         date: timestamp,
         comment: userComment
     };
-
     defaultComments.push(newComment);
     sortArray();
-
-    // defaultComments.unshift(newComment); 
-
     commentForm.reset();
     showAllComments();
-
 });
 
 //Sort comments array 
@@ -129,14 +105,12 @@ function sortArray() {
         let bdate = new Date(b.date);
         let aTime = adate.getTime();
         let bTime = bdate.getTime();
-
         return bTime - aTime;
     });
 };
 
 //Validate user inputs
 function validateUserInput(userName, userComment) {
-
     if ((userName === "") || (userComment === "")) {
         if ((userName === "") && (userComment === "")) {
             formErrors.innerText = "Enter a valid username and comment";
@@ -163,14 +137,11 @@ function dynamicTimeCalc(commmetDate) {
     const currentTime = new Date();
     const commentDate = commmetDate;
     const calcTime = currentTime - commentDate;
-
     const seconds = Math.floor(calcTime / 1000);
-    // console.log(seconds);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
     let time;
-
     if (days > 0) {
         time = days + ' day' + (days > 1 ? 's' : '') + ' ago';
     } else if (hours > 0) {
@@ -180,7 +151,5 @@ function dynamicTimeCalc(commmetDate) {
     } else {
         time = seconds + ' second' + (seconds !== 1 ? 's' : '') + ' ago';
     }
-
     return time;
 }
-

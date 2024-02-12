@@ -390,10 +390,17 @@ a {
     flex-direction: row;
     flex: 1;
     width: 80%;
-    padding: 0.5rem;
+    padding: 1.5rem 0.5rem 0.5rem;
     color: #AFAFAF;
     text-transform: uppercase;
     font-size: 0.8rem;
+    font-weight: bold;
+  }
+}
+@media (min-width: 1280px) {
+  .show__layout--label-tablet {
+    padding: 0.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -406,6 +413,7 @@ a {
 }
 
 .show__item {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
@@ -428,7 +436,8 @@ a {
 .show__item--label {
   color: #AFAFAF;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
 }
 @media (min-width: 768px) {
   .show__item--label {
@@ -437,7 +446,6 @@ a {
 }
 .show__item--value {
   color: #323232;
-  font-weight: bold;
   padding: 1rem 0;
   flex: 1;
 }
@@ -445,6 +453,9 @@ a {
   .show__item--value {
     padding: 1rem;
   }
+}
+.show__item--date-style {
+  font-weight: bold;
 }
 .show__item--button {
   text-transform: uppercase;
