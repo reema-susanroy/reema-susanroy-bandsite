@@ -585,6 +585,7 @@ a {
 }
 
 label {
+  text-transform: uppercase;
   font-size: 0.8rem;
   color: #AFAFAF;
   padding-bottom: 0.5rem;
