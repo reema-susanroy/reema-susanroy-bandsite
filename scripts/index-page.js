@@ -1,39 +1,37 @@
-const commentSection = document.querySelector(".comments");
+import { BandSiteApi } from "./band-site-api.js";
 
-const defaultComments = [
-    {
-        name: "Victor Pinto",
-        date: "11/02/2023",
-        comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-    },
-    {
-        name: "Christina Cabrera",
-        date: "10/28/2023",
-        comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-    },
-    {
-        name: "Isaac Tadesse",
-        date: "10/20/2023",
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-    },
-]
+const apiKey = 'b0f7ef84-4f1b-41b0-b069-70d059f53b0e';
+const apiClient = new BandSiteApi(apiKey);
+let defaultComments = [];
 
-showAllComments();
+const fetchComments = async () => {
+    try {
+        let CommentsImported = await apiClient.getComments();
+        defaultComments = CommentsImported;
+        //console.log(defaultComments)
+        showAllComments();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+fetchComments();
 
 function showAllComments() {
     commentSection.innerHTML = '';
+    sortArray();
     defaultComments.forEach((comment) => {
-        //To convert date from string to Date() inorder to perform sorting and dynamic time calculations
-        const dateObject = new Date(comment.date);
-        const dynamicTime = dynamicTimeCalc(dateObject);
-        displayComment(comment.name, dynamicTime, comment.comment);
+        displayComment(comment);
     });
 }
 
 //To create elements using DOM
-function displayComment(userName, date, userComment) {
+const commentSection = document.querySelector(".comments");
+
+function displayComment(comment) {
     const userCont = document.createElement("div");
     userCont.classList.add("comment__user")
+
     const imgCont = document.createElement("div");
     imgCont.classList.add("comment__user--image-cont")
     const imgEl = document.createElement("p");
@@ -45,17 +43,23 @@ function displayComment(userName, date, userComment) {
     nameCont.classList.add("comment__user--name-cont")
     const nameEl = document.createElement("p");
     nameEl.classList.add("comment__user--name");
-    nameEl.textContent = userName;
+    nameEl.textContent = comment.name;
     const dateEl = document.createElement("p");
     dateEl.classList.add("comment__user--date");
-    dateEl.textContent = date;
+    
+
+    //to convert date to dynamic style
+    const dateObject = new Date(comment.timestamp);
+    const dynamicTime = dynamicTimeCalc(dateObject);
+    dateEl.textContent = dynamicTime;
+
     nameCont.appendChild(nameEl);
     nameCont.appendChild(dateEl);
     const commentCont = document.createElement("div");
     commentCont.classList.add("comment__user--comment-cont")
     const commentEl = document.createElement("p");
     commentEl.classList.add("comment__user--comment");
-    commentEl.textContent = userComment;
+    commentEl.textContent = comment.comment;
     commentCont.appendChild(commentEl);
     nameCommentCont.appendChild(nameCont);
     nameCommentCont.appendChild(commentCont);
@@ -74,7 +78,7 @@ commentInput.classList.remove("user-error");
 nameInput.classList.remove("user-error");
 
 //EventListener for form submission
-commentForm.addEventListener('submit', function (event) {
+commentForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     formErrors.innerText = "";
@@ -82,30 +86,32 @@ commentForm.addEventListener('submit', function (event) {
     nameInput.classList.remove("user-error");
     const userName = document.getElementById('username').value;
     const userComment = document.getElementById('userComment').value;
-    const currentDate = new Date();
-    const timestamp = currentDate.getTime();
+    const currentDate = Date.now();
     if (!validateUserInput(userName, userComment)) {
         return;
     }
     const newComment = {
         name: userName,
-        date: timestamp,
-        comment: userComment
+        comment: userComment,
     };
-    defaultComments.push(newComment);
+
+    const postResponse = await apiClient.postComments(newComment);
+    console.log(postResponse);
+    defaultComments.push(postResponse);
+
     sortArray();
     commentForm.reset();
     showAllComments();
 });
 
+
+
 //Sort comments array 
 function sortArray() {
     defaultComments.sort(function (a, b) {
-        let adate = new Date(a.date);
-        let bdate = new Date(b.date);
-        let aTime = adate.getTime();
-        let bTime = bdate.getTime();
-        return bTime - aTime;
+        let adate = a.timestamp;
+        let bdate = b.timestamp;
+        return bdate - adate;
     });
 };
 
