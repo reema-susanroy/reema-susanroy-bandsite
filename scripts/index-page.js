@@ -6,9 +6,7 @@ let defaultComments = [];
 
 const fetchComments = async () => {
     try {
-        let commentsFetched = await apiClient.getComments();
-        defaultComments = commentsFetched;
-        //console.log(defaultComments)
+        defaultComments = await apiClient.getComments();
         showAllComments();
     }
     catch (error) {
@@ -27,10 +25,12 @@ function showAllComments() {
 
 //To create elements using DOM
 const commentSection = document.querySelector(".comments");
+let likebutton;
 
 function displayComment(comment) {
     const userCont = document.createElement("div");
     userCont.classList.add("comment__user")
+    userCont.setAttribute("data-userid", comment.id);
 
     const imgCont = document.createElement("div");
     imgCont.classList.add("comment__user--image-cont")
@@ -39,6 +39,7 @@ function displayComment(comment) {
     imgCont.appendChild(imgEl);
     const nameCommentCont = document.createElement("div");
     nameCommentCont.classList.add("comment__user--comment-cont")
+
     const nameCont = document.createElement("div");
     nameCont.classList.add("comment__user--name-cont")
     const nameEl = document.createElement("p");
@@ -46,7 +47,7 @@ function displayComment(comment) {
     nameEl.textContent = comment.name;
     const dateEl = document.createElement("p");
     dateEl.classList.add("comment__user--date");
-    
+
     //to convert timestamp to dynamic time
     const dateObject = new Date(comment.timestamp);
     const dynamicTime = dynamicTimeCalc(dateObject);
@@ -56,27 +57,50 @@ function displayComment(comment) {
     nameCont.appendChild(dateEl);
     const commentCont = document.createElement("div");
     commentCont.classList.add("comment__user--comment-cont")
+
     const commentEl = document.createElement("p");
     commentEl.classList.add("comment__user--comment");
 
     const likeCont = document.createElement("div");
     likeCont.classList.add("comment__user--like-cont")
-    likeCont.id = "actionComment";
     const likeEl = document.createElement("img");
     likeEl.classList.add("comment__user--like");
-    // likeEl.setI
-    likeEl.setAttribute("src", "./assets/icons/SVG/icon-like.svg" );
-    likeEl.setAttribute("alt", "like-button" );
-    likeEl.id=comment.id;
+    likeEl.setAttribute("src", "./assets/icons/SVG/icon-like.svg");
+    likeEl.setAttribute("alt", "like-button");
+    likeEl.setAttribute("id", "actionComment");
+
+    const likeCountEL = document.createElement("span");
+    likeCountEL.textContent = comment.likes;
+    likeCont.append(likeCountEL);
+
+    likeEl.addEventListener("click", async () => {
+        try {
+            const likes = await likeComment(comment.id);
+            likeCountEL.textContent = "";
+            likeCountEL.innerHTML = likes;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
 
     const deleteEl = document.createElement("img");
     deleteEl.classList.add("comment__user--delete");
-    deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg" );
-    deleteEl.setAttribute("alt", "delete-button" );
-    deleteEl.id=comment.id;
+    deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg");
+    deleteEl.setAttribute("alt", "delete-button");
+
+    deleteEl.addEventListener("click", async () => {
+        try {
+            const deletedComment = await deleteComment(comment.id);
+            const removeFromUI = document.querySelector(`[data-userid="${comment.id}"]`);
+            removeFromUI.remove();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
 
     commentEl.textContent = comment.comment;
-
     commentCont.appendChild(commentEl);
     likeCont.append(likeEl);
     likeCont.append(deleteEl);
@@ -88,8 +112,20 @@ function displayComment(comment) {
     commentSection.appendChild(userCont);
 }
 
+async function likeComment(comment) {
+    const response = await apiClient.likeComment(comment);
+    const count = response.likes;
+    return count;
+}
+
+async function deleteComment(comment) {
+    const response = await apiClient.deleteComment(comment);
+    const delData = response.id;
+    return delData;
+}
+
 const commentForm = document.getElementById('commentForm');
-console.log({commentForm})
+console.log({ commentForm })
 const formErrors = document.querySelector(".formError");
 const nameInput = document.getElementById('username');
 const commentInput = document.getElementById('userComment');
@@ -117,26 +153,13 @@ commentForm.addEventListener('submit', async function (event) {
     };
 
     const postResponse = await apiClient.postComments(newComment);
-    console.log(postResponse);
+    // console.log(postResponse);
     defaultComments.push(postResponse);
 
     sortArray();
     commentForm.reset();
     showAllComments();
 });
-
-
-const likeButton = document.querySelector(".comment__user--like");
-console.log({likeButton});
-likeButton.addEventListener('click', function(event){
-    const idUser = img.getAttribute(id);
-    console.log(idUser);
-
-    event.preventDefault();
-    // const likeCount = await BandSiteApi.likeComment()
-
-});
-
 
 //Sort comments array 
 function sortArray() {
@@ -175,8 +198,6 @@ function dynamicTimeCalc(commmetDate) {
     const currentTime = new Date();
     const commentDate = commmetDate;
     const calcTime = currentTime - commentDate;
-    console.log({currentTime, commentDate});
-    console.log(calcTime);
     const seconds = Math.floor(calcTime / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
@@ -189,7 +210,7 @@ function dynamicTimeCalc(commmetDate) {
     } else if (minutes > 0) {
         time = minutes + ' minute' + (minutes > 1 ? 's' : '') + ' ago';
     } else {
-        time = seconds + ' second' + (seconds !== 1 ? 's' : '') + ' ago';
+        time = '< 1 min ago';
     }
     return time;
 }

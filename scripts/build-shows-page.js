@@ -33,7 +33,8 @@ function formatDate(showDate){
 //To disply all the shows
 function displayShow() {
     showsItems.forEach((show) => {
-        const showData = createShowItems(show);
+        // const showData = createShowItems(show);
+         const showData = addShows(show);
         showSection.appendChild(showData);
         showData.addEventListener('click', function () {
             const items = document.querySelectorAll('.show__item');
@@ -83,6 +84,25 @@ function createShowItems(show) {
     showCont.appendChild(locationLabel);
     showCont.appendChild(locationContent);
     showCont.appendChild(buttonCont);
+
+
+    // const tabletLabelCont =document.createElement("div");
+    // tabletLabelCont.classList.add('show__layout--label-tablet');
+    // showSection.prepend(tabletLabelCont);
+    // const tabletDateLabel = document.createElement("p");
+    // tabletDateLabel.classList.add('show__layout--label-tablet');
+    // tabletDateLabel.textContent= "date";
+    // tabletLabelCont.appendChild(tabletDateLabel);
+    // const tabletVenueLabel = document.createElement("p");
+    // tabletVenueLabel.classList.add('show__layout--label-tablet');
+    // tabletVenueLabel.textContent = "venue";
+    // tabletLabelCont.appendChild(tabletVenueLabel);
+    // const tabletLocationLabel = document.createElement("p");
+    // tabletLocationLabel.classList.add('show__layout--label-tablet');
+    // tabletLocationLabel.textContent ="location";
+    // tabletLabelCont.appendChild(tabletLocationLabel);  
+
+    
     return showCont;
 }
 
@@ -104,4 +124,4 @@ function addTabletLabel(data) {
     tabletLocationLabel.textContent ="location";
     tabletLabelCont.appendChild(tabletLocationLabel);   
 }
-addTabletLabel(showsItems);
+// addTabletLabel(showsItems);

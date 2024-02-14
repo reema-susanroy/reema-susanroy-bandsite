@@ -39,8 +39,19 @@ export class BandSiteApi {
 
     likeComment =async (userID) => {
         try {
-            this.userID = userID;
-            const likeComment = await axios.put(`${this.baseUrl}/comments/${this.userID}?api_key=${this.apiKey}`);
+            // this.userID = userID;
+            const likeComment = await axios.put(`${this.baseUrl}/comments/${userID}/like?api_key=${this.apiKey}`);
+            return likeComment.data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    deleteComment =async (userID) => {
+        try {
+            // this.userID = userID;
+            const likeComment = await axios.delete(`${this.baseUrl}/comments/${userID}?api_key=${this.apiKey}`);
             return likeComment.data;
         }
         catch (error) {
