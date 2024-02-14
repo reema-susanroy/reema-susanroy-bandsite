@@ -398,3 +398,22 @@ label {
     font-weight: bold;
     font-size: 12px;
 }
+
+
+
+
+.comment__user--like-cont{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+.comment__user--like{
+    // height: 1rem;
+    // background-image: url('../assets/icons/SVG/icon-like.svg'); 
+    // background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.comment__user--delete{
+    cursor: pointer;
+}

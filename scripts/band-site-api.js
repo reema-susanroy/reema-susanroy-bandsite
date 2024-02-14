@@ -1,5 +1,4 @@
-
-const apiKey = 'b0f7ef84-4f1b-41b0-b069-70d059f53b0e';
+export const apiKey = 'b0f7ef84-4f1b-41b0-b069-70d059f53b0e';
 
 export class BandSiteApi {
     constructor(apiKey) {
@@ -19,7 +18,8 @@ export class BandSiteApi {
 
     getShows = async () => {
         try {
-            const showsData = await axios.get(`${this.baseUrl}/shows?api_key=${this.apiKey}`);
+            console.log("hey");
+            const showsData = await axios.get(`${this.baseUrl}/showdates?api_key=${this.apiKey}`);
             return showsData.data;
         }
         catch (error) {
@@ -31,6 +31,17 @@ export class BandSiteApi {
         try {
             const postComment = await axios.post(`${this.baseUrl}/comments?api_key=${this.apiKey}`, comment);
             return postComment.data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    likeComment =async (userID) => {
+        try {
+            this.userID = userID;
+            const likeComment = await axios.put(`${this.baseUrl}/comments/${this.userID}?api_key=${this.apiKey}`);
+            return likeComment.data;
         }
         catch (error) {
             console.log(error);

@@ -1,13 +1,13 @@
-import { BandSiteApi } from "./band-site-api.js";
+import { apiKey, BandSiteApi } from "./band-site-api.js";
 
-const apiKey = 'b0f7ef84-4f1b-41b0-b069-70d059f53b0e';
 const apiClient = new BandSiteApi(apiKey);
+
 let defaultComments = [];
 
 const fetchComments = async () => {
     try {
-        let CommentsImported = await apiClient.getComments();
-        defaultComments = CommentsImported;
+        let commentsFetched = await apiClient.getComments();
+        defaultComments = commentsFetched;
         //console.log(defaultComments)
         showAllComments();
     }
@@ -47,8 +47,7 @@ function displayComment(comment) {
     const dateEl = document.createElement("p");
     dateEl.classList.add("comment__user--date");
     
-
-    //to convert date to dynamic style
+    //to convert timestamp to dynamic time
     const dateObject = new Date(comment.timestamp);
     const dynamicTime = dynamicTimeCalc(dateObject);
     dateEl.textContent = dynamicTime;
@@ -59,16 +58,38 @@ function displayComment(comment) {
     commentCont.classList.add("comment__user--comment-cont")
     const commentEl = document.createElement("p");
     commentEl.classList.add("comment__user--comment");
+
+    const likeCont = document.createElement("div");
+    likeCont.classList.add("comment__user--like-cont")
+    likeCont.id = "actionComment";
+    const likeEl = document.createElement("img");
+    likeEl.classList.add("comment__user--like");
+    // likeEl.setI
+    likeEl.setAttribute("src", "./assets/icons/SVG/icon-like.svg" );
+    likeEl.setAttribute("alt", "like-button" );
+    likeEl.id=comment.id;
+
+    const deleteEl = document.createElement("img");
+    deleteEl.classList.add("comment__user--delete");
+    deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg" );
+    deleteEl.setAttribute("alt", "delete-button" );
+    deleteEl.id=comment.id;
+
     commentEl.textContent = comment.comment;
+
     commentCont.appendChild(commentEl);
+    likeCont.append(likeEl);
+    likeCont.append(deleteEl);
     nameCommentCont.appendChild(nameCont);
     nameCommentCont.appendChild(commentCont);
+    nameCommentCont.append(likeCont);
     userCont.appendChild(imgCont);
     userCont.appendChild(nameCommentCont);
     commentSection.appendChild(userCont);
 }
 
 const commentForm = document.getElementById('commentForm');
+console.log({commentForm})
 const formErrors = document.querySelector(".formError");
 const nameInput = document.getElementById('username');
 const commentInput = document.getElementById('userComment');
@@ -104,6 +125,17 @@ commentForm.addEventListener('submit', async function (event) {
     showAllComments();
 });
 
+
+const likeButton = document.querySelector(".comment__user--like");
+console.log({likeButton});
+likeButton.addEventListener('click', function(event){
+    const idUser = img.getAttribute(id);
+    console.log(idUser);
+
+    event.preventDefault();
+    // const likeCount = await BandSiteApi.likeComment()
+
+});
 
 
 //Sort comments array 
@@ -143,6 +175,8 @@ function dynamicTimeCalc(commmetDate) {
     const currentTime = new Date();
     const commentDate = commmetDate;
     const calcTime = currentTime - commentDate;
+    console.log({currentTime, commentDate});
+    console.log(calcTime);
     const seconds = Math.floor(calcTime / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);

@@ -670,4 +670,18 @@ label {
   padding: 0 1rem 0;
   font-weight: bold;
   font-size: 12px;
+}
+
+.comment__user--like-cont {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.comment__user--like {
+  cursor: pointer;
+}
+
+.comment__user--delete {
+  cursor: pointer;
 }/*# sourceMappingURL=bio.css.map */
