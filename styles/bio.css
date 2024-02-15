@@ -674,8 +674,9 @@ label {
 
 .comment__user--like-cont {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-end;
+  align-items: baseline;
 }
 
 .comment__user--like {

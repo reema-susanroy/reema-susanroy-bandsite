@@ -205,3 +205,26 @@
         }
     }
 }
+
+
+
+
+.show__item--label-tablet-cont{
+    display: none;
+    
+    @include tablet{
+        display: flex;
+        width: 65%;
+        padding: 1.5rem 0.5rem 0.5rem 1rem;
+        color: #AFAFAF;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: bold;
+        justify-content: space-between;
+    }
+}
+
+.show__item--label-tablet-none{
+    display: none;
+}
+
