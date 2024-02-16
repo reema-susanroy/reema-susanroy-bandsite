@@ -3,7 +3,7 @@ import { apiKey, BandSiteApi } from "./band-site-api.js";
 const apiClient = new BandSiteApi(apiKey);
 let defaultComments = [];
 
-//To make an apicall to get the comments from api
+//To make an apicall to get the comments from the api
 const fetchComments = async () => {
     try {
         defaultComments = await apiClient.getComments();
@@ -23,7 +23,7 @@ function showAllComments() {
     });
 }
 
-//To create elements using DOM
+//To create all the elements using DOM manipulation
 const commentSection = document.querySelector(".comments");
 function displayComment(comment) {
     const userCont = document.createElement("div");
@@ -46,7 +46,7 @@ function displayComment(comment) {
     const dateEl = document.createElement("p");
     dateEl.classList.add("comment__user--date");
 
-    //to convert timestamp to dynamic time
+    //Convert timestamp to dynamic time
     const dateObject = new Date(comment.timestamp);
     const dynamicTime = dynamicTimeCalc(dateObject);
     dateEl.textContent = dynamicTime;
@@ -71,6 +71,7 @@ function displayComment(comment) {
     likeCountEL.textContent = comment.likes;
     likeCont.append(likeCountEL);
 
+    //Add an event listener for like button clicks, that calls the async likeComment() and passes userid as parameter
     likeEl.addEventListener("click", async () => {
         try {
             const likes = await likeComment(comment.id);
@@ -86,8 +87,8 @@ function displayComment(comment) {
     deleteEl.classList.add("comment__user--icon");
     deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg");
     deleteEl.setAttribute("alt", "delete-button");
-    let  errorStor;
-    
+
+    //Add an event listener for delete button, that calls async deleteComment() and passes userid as parameter
     deleteEl.addEventListener("click", async () => {
         try {
             const deletedComment = await deleteComment(comment.id);
@@ -95,11 +96,14 @@ function displayComment(comment) {
             removeFromUI.remove();
         }
         catch (error) {
+
+            //To disply user understandable error message in UI
             const fetchEl = document.querySelector(".comments");
-             errorStor = document.createElement("p");
-             errorStor.classList.add("comments__error");
-            errorStor.textContent="Comment not found. Please check again!";
-            setTimeout(function() {
+            const errorStor = document.createElement("p");
+            errorStor.classList.add("comments__error");
+            errorStor.textContent = error
+            errorStor.textContent = "Comment not found. Please check again!";
+            setTimeout(function () {
                 errorStor.classList.add('comments__error--hide', 'comments__error--hide-fadeout');
             }, 2000);
             commentSection.prepend(errorStor);
@@ -118,12 +122,14 @@ function displayComment(comment) {
     commentSection.appendChild(userCont);
 }
 
+//Async function to make a likeComment API call
 async function likeComment(comment) {
     const response = await apiClient.likeComment(comment);
     const count = response.likes;
     return count;
 }
 
+//Async function to make a deleteComment API call
 async function deleteComment(comment) {
     const response = await apiClient.deleteComment(comment);
     const delData = response.id;
