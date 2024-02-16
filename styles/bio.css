@@ -631,7 +631,7 @@ label {
   justify-content: center;
   padding: 1rem 0;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
 }
 .comments__error--hide {
   display: none;
@@ -673,6 +673,15 @@ label {
 .comment__user--comment {
   padding: 1rem 0;
 }
+.comment__user--like-cont {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+.comment__user--icon {
+  cursor: pointer;
+}
 
 .formError {
   display: flex;
@@ -681,19 +690,4 @@ label {
   padding: 0 1rem 0;
   font-weight: bold;
   font-size: 12px;
-}
-
-.comment__user--like-cont {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  align-items: baseline;
-}
-
-.comment__user--like {
-  cursor: pointer;
-}
-
-.comment__user--delete {
-  cursor: pointer;
 }/*# sourceMappingURL=bio.css.map */

@@ -433,6 +433,9 @@ a {
 .show__item.selected {
   background-color: #E1E1E1;
 }
+.show__item:active {
+  background-color: #E1E1E1;
+}
 .show__item--label {
   color: #AFAFAF;
   text-transform: uppercase;

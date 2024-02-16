@@ -1,9 +1,9 @@
 import { apiKey, BandSiteApi } from "./band-site-api.js";
 
 const apiClient = new BandSiteApi(apiKey);
-
 let defaultComments = [];
 
+//To make an apicall to get the comments from api
 const fetchComments = async () => {
     try {
         defaultComments = await apiClient.getComments();
@@ -25,8 +25,6 @@ function showAllComments() {
 
 //To create elements using DOM
 const commentSection = document.querySelector(".comments");
-let likebutton;
-
 function displayComment(comment) {
     const userCont = document.createElement("div");
     userCont.classList.add("comment__user")
@@ -64,7 +62,7 @@ function displayComment(comment) {
     const likeCont = document.createElement("div");
     likeCont.classList.add("comment__user--like-cont")
     const likeEl = document.createElement("img");
-    likeEl.classList.add("comment__user--like");
+    likeEl.classList.add("comment__user--icon");
     likeEl.setAttribute("src", "./assets/icons/SVG/icon-like.svg");
     likeEl.setAttribute("alt", "like-button");
     likeEl.setAttribute("id", "actionComment");
@@ -85,7 +83,7 @@ function displayComment(comment) {
     });
 
     const deleteEl = document.createElement("img");
-    deleteEl.classList.add("comment__user--delete");
+    deleteEl.classList.add("comment__user--icon");
     deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg");
     deleteEl.setAttribute("alt", "delete-button");
     let  errorStor;
@@ -102,8 +100,8 @@ function displayComment(comment) {
              errorStor.classList.add("comments__error");
             errorStor.textContent="Comment not found. Please check again!";
             setTimeout(function() {
-                errorStor.classList.add("comments__error--hide");
-            }, 3000);
+                errorStor.classList.add('comments__error--hide', 'comments__error--hide-fadeout');
+            }, 2000);
             commentSection.prepend(errorStor);
         }
     });
@@ -133,7 +131,6 @@ async function deleteComment(comment) {
 }
 
 const commentForm = document.getElementById('commentForm');
-console.log({ commentForm })
 const formErrors = document.querySelector(".formError");
 const nameInput = document.getElementById('username');
 const commentInput = document.getElementById('userComment');
@@ -160,8 +157,8 @@ commentForm.addEventListener('submit', async function (event) {
         comment: userComment,
     };
 
+    //APICall postComment() after validation, to display comments
     const postResponse = await apiClient.postComments(newComment);
-    // console.log(postResponse);
     defaultComments.push(postResponse);
 
     sortArray();
@@ -201,7 +198,7 @@ function validateUserInput(userName, userComment) {
     return true;
 }
 
-//Calculate dynamic timestamp
+//To Calculate dynamic timestamp
 function dynamicTimeCalc(commmetDate) {
     const currentTime = new Date();
     const commentDate = commmetDate;

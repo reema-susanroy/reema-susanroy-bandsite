@@ -159,7 +159,10 @@
         transition: background-color 0.3s;
     }
 
-    &.selected {
+    &.selected {    
+        background-color: $ternary_color;
+    }
+    &:active {
         background-color: $ternary_color;
     }
 
@@ -205,9 +208,6 @@
         }
     }
 }
-
-
-
 
 .show__item--label-tablet-cont{
     display: none;

@@ -354,10 +354,15 @@ label {
         justify-content: center;
         padding: 1rem 0;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 14px;
 
         &--hide{
             display: none;
+            // opacity:1;
+            // transition: opacity 2s ease-in-out;
+            // &-fadeout{
+            //     opacity: 0;
+            // }
         }
     }
 
@@ -366,9 +371,9 @@ label {
 .comment__user {
     display: flex;
     font-size: 0.9rem;
-    border-top: 1px solid #E1E1E1;
+    border-top: 1px solid $ternary_color;
     padding: 1rem 0;
-    border-bottom: 1px solid #E1E1E1;
+    border-bottom: 1px solid $ternary_color;
 
     &--image-cont {
         padding-right: 1rem;
@@ -405,6 +410,15 @@ label {
     &--comment {
         padding: 1rem 0;
     }
+    &--like-cont {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        align-items: baseline;
+    }
+    &--icon {
+            cursor: pointer;
+        }
 }
 
 .formError {
@@ -414,25 +428,4 @@ label {
     padding: 0 1rem 0;
     font-weight: bold;
     font-size: 12px;
-}
-
-
-
-
-.comment__user--like-cont {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: flex-end;
-    align-items: baseline;
-}
-
-.comment__user--like {
-    // height: 1rem;
-    // background-image: url('../assets/icons/SVG/icon-like.svg'); 
-    // background-repeat: no-repeat;
-    cursor: pointer;
-}
-
-.comment__user--delete {
-    cursor: pointer;
 }
