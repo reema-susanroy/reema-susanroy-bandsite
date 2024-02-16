@@ -272,7 +272,7 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 12rem;
+  height: 50vw;
   width: 100%;
   display: flex;
   overflow: hidden;
@@ -624,6 +624,17 @@ label {
   .comments {
     padding: 2rem 24rem;
   }
+}
+.comments__error {
+  color: #D22D2D;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+.comments__error--hide {
+  display: none;
 }
 
 .comment__user {

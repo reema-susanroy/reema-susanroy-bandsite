@@ -88,7 +88,8 @@ function displayComment(comment) {
     deleteEl.classList.add("comment__user--delete");
     deleteEl.setAttribute("src", "./assets/icons/SVG/icon-delete.svg");
     deleteEl.setAttribute("alt", "delete-button");
-
+    let  errorStor;
+    
     deleteEl.addEventListener("click", async () => {
         try {
             const deletedComment = await deleteComment(comment.id);
@@ -96,7 +97,14 @@ function displayComment(comment) {
             removeFromUI.remove();
         }
         catch (error) {
-            console.log(error);
+            const fetchEl = document.querySelector(".comments");
+             errorStor = document.createElement("p");
+             errorStor.classList.add("comments__error");
+            errorStor.textContent="Comment not found. Please check again!";
+            setTimeout(function() {
+                errorStor.classList.add("comments__error--hide");
+            }, 3000);
+            commentSection.prepend(errorStor);
         }
     });
 

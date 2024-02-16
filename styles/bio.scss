@@ -7,7 +7,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 12rem;
+    height: 50vw;
     width: 100%;
     display: flex;
     overflow: hidden;
@@ -280,7 +280,7 @@
         padding: 0.75rem;
         background-color: $alternative_background_color ;
 
-        @include tablet{
+        @include tablet {
             padding: 1rem;
         }
     }
@@ -297,7 +297,7 @@
     cursor: pointer;
     text-transform: uppercase;
     align-items: center;
-    color: #FFFFFF;
+    color: $primary_text_color;
     background-color: $primary_color;
     height: 2.5rem;
     justify-content: center;
@@ -308,7 +308,8 @@
         padding: 0 32px;
 
     }
-    &:hover{
+
+    &:hover {
         background-color: $secondary_color;
     }
 }
@@ -326,7 +327,8 @@ label {
 
 #username {
     height: 36px;
-    @include tablet{
+
+    @include tablet {
         height: 48px;
     }
 }
@@ -341,9 +343,24 @@ label {
     @include tablet {
         padding: 2rem 5rem;
     }
-    @include desktop{
+
+    @include desktop {
         padding: 2rem 24rem;
     }
+
+    &__error {
+        color: $user_Error;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        font-weight: bold;
+        font-size: 16px;
+
+        &--hide{
+            display: none;
+        }
+    }
+
 }
 
 .comment__user {
@@ -402,19 +419,20 @@ label {
 
 
 
-.comment__user--like-cont{
+.comment__user--like-cont {
     display: flex;
     gap: 0.5rem;
     justify-content: flex-end;
     align-items: baseline;
 }
-.comment__user--like{
+
+.comment__user--like {
     // height: 1rem;
     // background-image: url('../assets/icons/SVG/icon-like.svg'); 
     // background-repeat: no-repeat;
     cursor: pointer;
 }
 
-.comment__user--delete{
+.comment__user--delete {
     cursor: pointer;
 }

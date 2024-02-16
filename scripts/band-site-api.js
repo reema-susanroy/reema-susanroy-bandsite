@@ -55,7 +55,9 @@ export class BandSiteApi {
             return likeComment.data;
         }
         catch (error) {
-            console.log(error);
+            
+            return error;
+            // console.log(error);
         }
     }
 }
