@@ -3,7 +3,7 @@ import { apiKey, BandSiteApi } from "./band-site-api.js";
 const apiClient = new BandSiteApi(apiKey);
 let showsItems =[];
 
-//To make an apicall to get the shows from api
+//To make an apicall to get the shows details
 const fetchShows = async () => {
     try {
         let showsfetched = await apiClient.getShows();
@@ -42,15 +42,13 @@ function displayShow() {
             const items = document.querySelectorAll(".show__item");
             items.forEach((item) => {
                 item.classList.remove('selected');
-                console.log("selected");
             });
             this.classList.add('selected');
-            console.log('removed')
         });
     });
 }
 
-//To create elemts for the show section using DOM manipulation
+//To create elements for the show section using DOM manipulation
 function createShowItems(show) {
     const labelCont = document.createElement("div");
     labelCont.classList.add("show__item--label-tablet-cont")
@@ -113,7 +111,6 @@ function createShowItems(show) {
 //Add a 'tablet-none' class to the show labels except for first set, inorder to hide remaining labels for tablet and desktop view 
 function hideLabelTablet(){
     const label = document.querySelectorAll(".show__item--label-tablet-cont");
-    console.log(label.length);
     for(let i=1; i<label.length; i++){
         label[i].classList.add('show__item--label-tablet-none');
     }

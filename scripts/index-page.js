@@ -3,14 +3,14 @@ import { apiKey, BandSiteApi } from "./band-site-api.js";
 const apiClient = new BandSiteApi(apiKey);
 let defaultComments = [];
 
-//To make an apicall to get the comments from the api
+//To make an apicall to get the comments
 const fetchComments = async () => {
     try {
         defaultComments = await apiClient.getComments();
         showAllComments();
     }
     catch (error) {
-        console.log(error);
+        console.log("Couldn't fetch comments, "+error);
     }
 }
 fetchComments();
@@ -46,7 +46,7 @@ function displayComment(comment) {
     const dateEl = document.createElement("p");
     dateEl.classList.add("comment__user--date");
 
-    //Convert timestamp to dynamic time
+    //Convert comment timestamp to dynamic time
     const dateObject = new Date(comment.timestamp);
     const dynamicTime = dynamicTimeCalc(dateObject);
     dateEl.textContent = dynamicTime;
@@ -71,7 +71,7 @@ function displayComment(comment) {
     likeCountEL.textContent = comment.likes;
     likeCont.append(likeCountEL);
 
-    //Add an event listener for like button clicks, that calls the async likeComment() and passes userid as parameter
+    //Add an event listener for like-button, that calls the async likeComment() for each click and passes userid as parameter
     likeEl.addEventListener("click", async () => {
         try {
             const likes = await likeComment(comment.id);
@@ -97,7 +97,7 @@ function displayComment(comment) {
         }
         catch (error) {
 
-            //To disply user understandable error message in UI
+            //To disply user understandable error message in the UI
             const fetchEl = document.querySelector(".comments");
             const errorStor = document.createElement("p");
             errorStor.classList.add("comments__error");
@@ -172,7 +172,7 @@ commentForm.addEventListener('submit', async function (event) {
     showAllComments();
 });
 
-//Sort comments array 
+//Sort comments array in descending order, based on timestamp
 function sortArray() {
     defaultComments.sort(function (a, b) {
         let adate = a.timestamp;

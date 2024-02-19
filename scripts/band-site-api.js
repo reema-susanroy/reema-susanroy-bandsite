@@ -6,7 +6,7 @@ export class BandSiteApi {
         this.baseUrl = "https://unit-2-project-api-25c1595833b2.herokuapp.com";
     }
 
-    //To get the comments from API and store in a variable to retrieve data
+    //To get the comments from API and store it in a variable to retrieve required data from the response
     getComments = async () => {
         try {
             const commentData = await axios.get(`${this.baseUrl}/comments?api_key=${this.apiKey}`);
@@ -17,7 +17,7 @@ export class BandSiteApi {
         }
     }
 
-    //To get the shows from API and store in a variable to retrieve data
+    //To get the shows list from the API and store it in a variable to retrieve data
     getShows = async () => {
         try {
             const showsData = await axios.get(`${this.baseUrl}/showdates?api_key=${this.apiKey}`);
@@ -62,6 +62,3 @@ export class BandSiteApi {
         }
     }
 }
-
-// const apiClient = new BandSiteApi(apiKey);
-// apiClient.getComments();
