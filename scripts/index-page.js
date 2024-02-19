@@ -101,14 +101,14 @@ function displayComment(comment) {
 
             //To disply user understandable error message in the UI
             const fetchEl = document.querySelector(".comments");
-            const errorStor = document.createElement("p");
-            errorStor.classList.add("comments__error");
-            errorStor.textContent = error
-            errorStor.textContent = "Comment not found. Please check again!";
+            const errorEl = document.createElement("p");
+            errorEl.classList.add("comments__error");
+            errorEl.textContent = error
+            errorEl.textContent = "Comment not found. Please check again!";
             setTimeout(function () {
-                errorStor.classList.add('comments__error--hide');
+                errorEl.classList.add('comments__error--hide');
             }, 2000);
-            commentSection.prepend(errorStor);
+            commentSection.prepend(errorEl);
         }
     });
 
