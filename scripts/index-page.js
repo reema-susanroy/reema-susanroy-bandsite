@@ -106,7 +106,7 @@ function displayComment(comment) {
             errorStor.textContent = error
             errorStor.textContent = "Comment not found. Please check again!";
             setTimeout(function () {
-                errorStor.classList.add('comments__error--hide', 'comments__error--hide-fadeout');
+                errorStor.classList.add('comments__error--hide');
             }, 2000);
             commentSection.prepend(errorStor);
         }
