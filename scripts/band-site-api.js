@@ -13,7 +13,7 @@ export class BandSiteApi {
             return commentData.data;
         }
         catch (error) {
-            console.log("Failed to load comments:" + error);
+            console.log(error);
         }
     }
 
@@ -24,7 +24,7 @@ export class BandSiteApi {
             return showsData.data;
         }
         catch (error) {
-            console.log("Failed to get the comments: " + error);
+            console.log(error);
         }
     }
 
@@ -35,7 +35,7 @@ export class BandSiteApi {
             return postComment.data;
         }
         catch (error) {
-            console.log("Failed to post the comment: " + error);
+            console.log(error);
         }
     }
 
@@ -46,7 +46,7 @@ export class BandSiteApi {
             return likeComment.data;
         }
         catch (error) {
-            console.log("Failed to like the comment: " + error);
+            console.log(error);
         }
     }
 
@@ -58,7 +58,7 @@ export class BandSiteApi {
         }
         catch (error) {
             
-            console.log("Failed to delete the comment: " + error);
+            console.log(error);
         }
     }
 }

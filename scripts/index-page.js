@@ -77,6 +77,7 @@ function displayComment(comment) {
             const likes = await likeComment(comment.id);
             likeCountEL.textContent = "";
             likeCountEL.innerHTML = likes;
+            fetchComments();
         }
         catch (error) {
             console.log(error);
@@ -94,6 +95,7 @@ function displayComment(comment) {
             const deletedComment = await deleteComment(comment.id);
             const removeFromUI = document.querySelector(`[data-userid="${comment.id}"]`);
             removeFromUI.remove();
+            fetchComments();
         }
         catch (error) {
 
